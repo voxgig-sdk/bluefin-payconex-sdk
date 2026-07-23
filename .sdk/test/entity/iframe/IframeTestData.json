@@ -1,0 +1,63 @@
+{
+  "existing": {
+    "iframe": {
+      "IFRAME00": {
+        "ach_setting": {},
+        "allowed_parent_domain": [],
+        "allowed_payment_method": [],
+        "card_setting": {},
+        "click_to_pay_setting": {},
+        "currency": "s69",
+        "id": "IFRAME00",
+        "label": "s6b",
+        "language": "s6c",
+        "timeout": 109,
+        "account_id": "ACCOUNT01",
+        "iframe_id": "IFRAME01"
+      },
+      "IFRAME01": {
+        "ach_setting": {},
+        "allowed_parent_domain": [],
+        "allowed_payment_method": [],
+        "card_setting": {},
+        "click_to_pay_setting": {},
+        "currency": "scd",
+        "id": "IFRAME01",
+        "label": "scf",
+        "language": "sd0",
+        "timeout": 209,
+        "account_id": "ACCOUNT01",
+        "iframe_id": "IFRAME01"
+      },
+      "IFRAME02": {
+        "ach_setting": {},
+        "allowed_parent_domain": [],
+        "allowed_payment_method": [],
+        "card_setting": {},
+        "click_to_pay_setting": {},
+        "currency": "s131",
+        "id": "IFRAME02",
+        "label": "s133",
+        "language": "s134",
+        "timeout": 309,
+        "account_id": "ACCOUNT01",
+        "iframe_id": "IFRAME01"
+      }
+    }
+  },
+  "new": {
+    "iframe": {
+      "iframe_ref01": {
+        "ach_setting": {},
+        "allowed_parent_domain": [],
+        "allowed_payment_method": [],
+        "card_setting": {},
+        "click_to_pay_setting": {},
+        "currency": "s195",
+        "label": "s197",
+        "language": "s198",
+        "timeout": 409
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+# BasicAccountUpdaterScheduleWithResultFlow
+
+main: kit: flow: BasicAccountUpdaterScheduleWithResultFlow:
+{
+  entity: "account_updater_schedule_with_result",
+  kind: "basic",
+  name: "BasicAccountUpdaterScheduleWithResultFlow",
+  step: [
+    {
+      input: {
+        ref: "account_updater_schedule_with_result_ref01"
+      }
+
+      match: {
+        account_id: "account01",
+        schedule_id: "schedule01"
+      }
+
+      op: "create"
+    }
+
+    {
+      match: {
+        account_id: "account01",
+        schedule_id: "schedule01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "account_updater_schedule_with_result_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAccountUpdaterScheduleWithResultFlow"
+}

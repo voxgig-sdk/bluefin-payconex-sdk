@@ -1,0 +1,22 @@
+# BasicApplePaySessionFlow
+
+main: kit: flow: BasicApplePaySessionFlow:
+{
+  entity: "apple_pay_session",
+  kind: "basic",
+  name: "BasicApplePaySessionFlow",
+  step: [
+    {
+      input: {
+        ref: "apple_pay_session_ref01"
+      }
+
+      match: {
+        account_id: "account01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicApplePaySessionFlow"
+}

@@ -1,0 +1,38 @@
+{
+  "existing": {
+    "list_api_key_scopes_entry": {
+      "LIST_API_KEY_SCOPES_ENTRY00": {
+        "category": "s32",
+        "description": "s33",
+        "enabled": true,
+        "level": "s35",
+        "scope": "s36"
+      },
+      "LIST_API_KEY_SCOPES_ENTRY01": {
+        "category": "s64",
+        "description": "s65",
+        "enabled": true,
+        "level": "s67",
+        "scope": "s68"
+      },
+      "LIST_API_KEY_SCOPES_ENTRY02": {
+        "category": "s96",
+        "description": "s97",
+        "enabled": true,
+        "level": "s99",
+        "scope": "s9a"
+      }
+    }
+  },
+  "new": {
+    "list_api_key_scopes_entry": {
+      "list_api_key_scopes_entry_ref01": {
+        "category": "sc8",
+        "description": "sc9",
+        "enabled": true,
+        "level": "scb",
+        "scope": "scc"
+      }
+    }
+  }
+}

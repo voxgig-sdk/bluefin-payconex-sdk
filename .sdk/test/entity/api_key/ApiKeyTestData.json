@@ -1,0 +1,56 @@
+{
+  "existing": {
+    "api_key": {
+      "API_KEY00": {
+        "account": [],
+        "enabled": false,
+        "expires_at": "s5c",
+        "expires_in": "s5d",
+        "id": "API_KEY00",
+        "label": "s5f",
+        "method": [],
+        "scope": [],
+        "secret": "s62",
+        "account_id": "ACCOUNT01"
+      },
+      "API_KEY01": {
+        "account": [],
+        "enabled": false,
+        "expires_at": "sb6",
+        "expires_in": "sb7",
+        "id": "API_KEY01",
+        "label": "sb9",
+        "method": [],
+        "scope": [],
+        "secret": "sbc",
+        "account_id": "ACCOUNT01"
+      },
+      "API_KEY02": {
+        "account": [],
+        "enabled": false,
+        "expires_at": "s110",
+        "expires_in": "s111",
+        "id": "API_KEY02",
+        "label": "s113",
+        "method": [],
+        "scope": [],
+        "secret": "s116",
+        "account_id": "ACCOUNT01"
+      }
+    }
+  },
+  "new": {
+    "api_key": {
+      "api_key_ref01": {
+        "account": [],
+        "enabled": false,
+        "expires_at": "s16a",
+        "expires_in": "s16b",
+        "label": "s16d",
+        "method": [],
+        "scope": [],
+        "secret": "s170"
+      }
+    }
+  }
+}

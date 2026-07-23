@@ -1,0 +1,22 @@
+# BasicThreeDSecureBrowserInitFlow
+
+main: kit: flow: BasicThreeDSecureBrowserInitFlow:
+{
+  entity: "three_d_secure_browser_init",
+  kind: "basic",
+  name: "BasicThreeDSecureBrowserInitFlow",
+  step: [
+    {
+      input: {
+        ref: "three_d_secure_browser_init_ref01"
+      }
+
+      match: {
+        account_id: "account01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicThreeDSecureBrowserInitFlow"
+}

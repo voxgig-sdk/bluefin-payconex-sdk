@@ -1,0 +1,74 @@
+# Entity: payment_iframe
+
+main: kit: entity: payment_iframe: {
+
+  alias: field: {}
+
+  name: "payment_iframe"
+  op: {
+    remove: {
+      name: "remove"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: 120615523104
+                kind: "param"
+                name: "account_id"
+                orig: "account_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: "ifr_d193148ac2624de7b43a191682a8822f"
+                kind: "param"
+                name: "id"
+                orig: "iframe_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/api/v4/accounts/{accountId}/payment-iframe/{iframeId}"
+          parts: [
+            "api"
+            "v4"
+            "accounts"
+            "{account_id}"
+            "payment-iframe"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              accountId: "account_id"
+              iframeId: "id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "account"
+      ]
+    ]
+  }
+
+
+
+}

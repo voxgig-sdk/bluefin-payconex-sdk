@@ -1,0 +1,40 @@
+{
+  "existing": {
+    "apple_pay_merchant_detail": {
+      "APPLE_PAY_MERCHANT_DETAIL00": {
+        "domain": [],
+        "merchant_url": "s29",
+        "partner_merchant_name": "s2a",
+        "payconex_account_id": "PAYCONEX_ACCOUNT01",
+        "account_id": "ACCOUNT01",
+        "id": "APPLE_PAY_MERCHANT_DETAIL00"
+      },
+      "APPLE_PAY_MERCHANT_DETAIL01": {
+        "domain": [],
+        "merchant_url": "s51",
+        "partner_merchant_name": "s52",
+        "payconex_account_id": "PAYCONEX_ACCOUNT01",
+        "account_id": "ACCOUNT01",
+        "id": "APPLE_PAY_MERCHANT_DETAIL01"
+      },
+      "APPLE_PAY_MERCHANT_DETAIL02": {
+        "domain": [],
+        "merchant_url": "s79",
+        "partner_merchant_name": "s7a",
+        "payconex_account_id": "PAYCONEX_ACCOUNT01",
+        "account_id": "ACCOUNT01",
+        "id": "APPLE_PAY_MERCHANT_DETAIL02"
+      }
+    }
+  },
+  "new": {
+    "apple_pay_merchant_detail": {
+      "apple_pay_merchant_detail_ref01": {
+        "domain": [],
+        "merchant_url": "sa1",
+        "partner_merchant_name": "sa2",
+        "payconex_account_id": "PAYCONEX_ACCOUNT01"
+      }
+    }
+  }
+}

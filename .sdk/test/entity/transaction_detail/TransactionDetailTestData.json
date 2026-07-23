@@ -1,0 +1,79 @@
+{
+  "existing": {
+    "transaction_detail": {
+      "TRANSACTION_DETAIL00": {
+        "amount": {},
+        "auth": {},
+        "card": {},
+        "customer": {},
+        "description": "s90",
+        "id": "TRANSACTION_DETAIL00",
+        "item": [],
+        "level2": {},
+        "level3": {},
+        "override": {},
+        "shipping_address": {},
+        "status": "s97",
+        "timestamp": "s98",
+        "trace": {},
+        "account_id": "ACCOUNT01",
+        "transaction_id": "TRANSACTION01"
+      },
+      "TRANSACTION_DETAIL01": {
+        "amount": {},
+        "auth": {},
+        "card": {},
+        "customer": {},
+        "description": "s11c",
+        "id": "TRANSACTION_DETAIL01",
+        "item": [],
+        "level2": {},
+        "level3": {},
+        "override": {},
+        "shipping_address": {},
+        "status": "s123",
+        "timestamp": "s124",
+        "trace": {},
+        "account_id": "ACCOUNT01",
+        "transaction_id": "TRANSACTION01"
+      },
+      "TRANSACTION_DETAIL02": {
+        "amount": {},
+        "auth": {},
+        "card": {},
+        "customer": {},
+        "description": "s1a8",
+        "id": "TRANSACTION_DETAIL02",
+        "item": [],
+        "level2": {},
+        "level3": {},
+        "override": {},
+        "shipping_address": {},
+        "status": "s1af",
+        "timestamp": "s1b0",
+        "trace": {},
+        "account_id": "ACCOUNT01",
+        "transaction_id": "TRANSACTION01"
+      }
+    }
+  },
+  "new": {
+    "transaction_detail": {
+      "transaction_detail_ref01": {
+        "amount": {},
+        "auth": {},
+        "card": {},
+        "customer": {},
+        "description": "s234",
+        "item": [],
+        "level2": {},
+        "level3": {},
+        "override": {},
+        "shipping_address": {},
+        "status": "s23b",
+        "timestamp": "s23c",
+        "trace": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "existing": {
+    "three_d_secure_browser_init": {
+      "THREE_D_SECURE_BROWSER_INIT00": {
+        "acs_result_url": "s64",
+        "acs_url": "s65",
+        "cvv": "s66",
+        "expiry": "s67",
+        "pan": "s68",
+        "payment_details_reference": "s69",
+        "server_transaction_id": "SERVER_TRANSACTION01",
+        "status": "s6b",
+        "three_d_secure_data": "s6c",
+        "three_d_secure_id": "THREE_D_SECURE01",
+        "account_id": "ACCOUNT01",
+        "id": "THREE_D_SECURE_BROWSER_INIT00"
+      },
+      "THREE_D_SECURE_BROWSER_INIT01": {
+        "acs_result_url": "sc8",
+        "acs_url": "sc9",
+        "cvv": "sca",
+        "expiry": "scb",
+        "pan": "scc",
+        "payment_details_reference": "scd",
+        "server_transaction_id": "SERVER_TRANSACTION01",
+        "status": "scf",
+        "three_d_secure_data": "sd0",
+        "three_d_secure_id": "THREE_D_SECURE01",
+        "account_id": "ACCOUNT01",
+        "id": "THREE_D_SECURE_BROWSER_INIT01"
+      },
+      "THREE_D_SECURE_BROWSER_INIT02": {
+        "acs_result_url": "s12c",
+        "acs_url": "s12d",
+        "cvv": "s12e",
+        "expiry": "s12f",
+        "pan": "s130",
+        "payment_details_reference": "s131",
+        "server_transaction_id": "SERVER_TRANSACTION01",
+        "status": "s133",
+        "three_d_secure_data": "s134",
+        "three_d_secure_id": "THREE_D_SECURE01",
+        "account_id": "ACCOUNT01",
+        "id": "THREE_D_SECURE_BROWSER_INIT02"
+      }
+    }
+  },
+  "new": {
+    "three_d_secure_browser_init": {
+      "three_d_secure_browser_init_ref01": {
+        "acs_result_url": "s190",
+        "acs_url": "s191",
+        "cvv": "s192",
+        "expiry": "s193",
+        "pan": "s194",
+        "payment_details_reference": "s195",
+        "server_transaction_id": "SERVER_TRANSACTION01",
+        "status": "s197",
+        "three_d_secure_data": "s198",
+        "three_d_secure_id": "THREE_D_SECURE01"
+      }
+    }
+  }
+}

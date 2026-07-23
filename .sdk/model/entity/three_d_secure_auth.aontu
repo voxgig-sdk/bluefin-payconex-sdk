@@ -1,0 +1,134 @@
+# Entity: three_d_secure_auth
+
+main: kit: entity: three_d_secure_auth: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "browser"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "card"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "challenge"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "customer"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "purchase"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "server_transaction_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "shipping"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "status"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "three_d_secure_challenge_indicator"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "three_d_secure_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "trace"
+      req: false
+      type: "`$OBJECT`"
+    }
+  ]
+
+  name: "three_d_secure_auth"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: "tds_23d0e53de3c64e94887116da65abc8ce"
+                kind: "param"
+                name: "3_d_id"
+                orig: "resource_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: "120615523104"
+                kind: "param"
+                name: "account_id"
+                orig: "account_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/api/v4/accounts/{accountId}/3DS/{resourceId}/browser-authenticate"
+          parts: [
+            "api"
+            "v4"
+            "accounts"
+            "{account_id}"
+            "3DS"
+            "{3_d_id}"
+            "browser-authenticate"
+          ]
+          rename: {
+            param: {
+              accountId: "account_id"
+              resourceId: "3_d_id"
+            }
+          }
+          select: {
+            exist: [
+              "3_d_id"
+              "account_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "account"
+        "3_d"
+      ]
+    ]
+  }
+
+
+
+}

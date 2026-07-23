@@ -1,0 +1,23 @@
+{
+  "existing": {
+    "payment_iframe": {
+      "PAYMENT_IFRAME00": {
+        "account_id": "ACCOUNT01",
+        "id": "PAYMENT_IFRAME00"
+      },
+      "PAYMENT_IFRAME01": {
+        "account_id": "ACCOUNT01",
+        "id": "PAYMENT_IFRAME01"
+      },
+      "PAYMENT_IFRAME02": {
+        "account_id": "ACCOUNT01",
+        "id": "PAYMENT_IFRAME02"
+      }
+    }
+  },
+  "new": {
+    "payment_iframe": {
+      "payment_iframe_ref01": {}
+    }
+  }
+}

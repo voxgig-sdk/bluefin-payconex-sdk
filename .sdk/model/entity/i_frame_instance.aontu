@@ -1,0 +1,87 @@
+# Entity: i_frame_instance
+
+main: kit: entity: i_frame_instance: {
+
+  alias: field: {}
+
+  name: "i_frame_instance"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: 120615523104
+                kind: "param"
+                name: "account_id"
+                orig: "account_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: "ifri_2a08d8fc30b64a8a9d8b9f0ec37b59c9"
+                kind: "param"
+                name: "id"
+                orig: "iframe_instance_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: "ifr_2a08d8fc30b64a8a9d8b9f0ec37b59c9"
+                kind: "param"
+                name: "payment_iframe_id"
+                orig: "iframe_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v4/accounts/{accountId}/payment-iframe/{iframeId}/instance/{iframeInstanceId}"
+          parts: [
+            "api"
+            "v4"
+            "accounts"
+            "{account_id}"
+            "payment-iframe"
+            "{payment_iframe_id}"
+            "instance"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              accountId: "account_id"
+              iframeId: "payment_iframe_id"
+              iframeInstanceId: "id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+              "id"
+              "payment_iframe_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "account"
+        "payment_iframe"
+      ]
+    ]
+  }
+
+
+
+}

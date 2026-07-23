@@ -1,0 +1,34 @@
+# BasicIFrameInstanceFlow
+
+main: kit: flow: BasicIFrameInstanceFlow:
+{
+  entity: "i_frame_instance",
+  kind: "basic",
+  name: "BasicIFrameInstanceFlow",
+  step: [
+    {
+      input: {
+        ref: "i_frame_instance_ref01",
+        srcdatavar: "i_frame_instance_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        account_id: "account01",
+        id: "i_frame_instance01",
+        payment_iframe_id: "payment_iframe01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-i_frame_instance_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicIFrameInstanceFlow"
+}

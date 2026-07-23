@@ -1,0 +1,40 @@
+{
+  "existing": {
+    "dynamic_descriptor": {
+      "DYNAMIC_DESCRIPTOR00": {
+        "city": "s32",
+        "descriptor": "s33",
+        "id": "DYNAMIC_DESCRIPTOR00",
+        "name": "s35",
+        "state": "s36",
+        "account_id": "ACCOUNT01"
+      },
+      "DYNAMIC_DESCRIPTOR01": {
+        "city": "s64",
+        "descriptor": "s65",
+        "id": "DYNAMIC_DESCRIPTOR01",
+        "name": "s67",
+        "state": "s68",
+        "account_id": "ACCOUNT01"
+      },
+      "DYNAMIC_DESCRIPTOR02": {
+        "city": "s96",
+        "descriptor": "s97",
+        "id": "DYNAMIC_DESCRIPTOR02",
+        "name": "s99",
+        "state": "s9a",
+        "account_id": "ACCOUNT01"
+      }
+    }
+  },
+  "new": {
+    "dynamic_descriptor": {
+      "dynamic_descriptor_ref01": {
+        "city": "sc8",
+        "descriptor": "sc9",
+        "name": "scb",
+        "state": "scc"
+      }
+    }
+  }
+}

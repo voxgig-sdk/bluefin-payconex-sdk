@@ -1,0 +1,125 @@
+# Entity: i_frame_create_instance
+
+main: kit: entity: i_frame_create_instance: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "amount"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "currency"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "customer"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "initialize_transaction"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "label"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "language"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "reference"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "timeout"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "token"
+      req: false
+      type: "`$ARRAY`"
+    }
+  ]
+
+  name: "i_frame_create_instance"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: 120615523104
+                kind: "param"
+                name: "account_id"
+                orig: "account_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: "ifr_2a08d8fc30b64a8a9d8b9f0ec37b59c9"
+                kind: "param"
+                name: "payment_iframe_id"
+                orig: "iframe_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/api/v4/accounts/{accountId}/payment-iframe/{iframeId}/instance/init"
+          parts: [
+            "api"
+            "v4"
+            "accounts"
+            "{account_id}"
+            "payment-iframe"
+            "{payment_iframe_id}"
+            "instance"
+            "init"
+          ]
+          rename: {
+            param: {
+              accountId: "account_id"
+              iframeId: "payment_iframe_id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+              "payment_iframe_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "account"
+        "payment_iframe"
+      ]
+    ]
+  }
+
+
+
+}

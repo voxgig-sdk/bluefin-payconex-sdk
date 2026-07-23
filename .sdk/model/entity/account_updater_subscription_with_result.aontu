@@ -1,0 +1,338 @@
+# Entity: account_updater_subscription_with_result
+
+main: kit: entity: account_updater_subscription_with_result: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "created_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "enabled"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "period_date"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "period_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "record"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "response_format"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "template_ref"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "updated_at"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "account_updater_subscription_with_result"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: 120615523104
+                kind: "param"
+                name: "account_id"
+                orig: "account"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: "css_42ffe2fd59e74d719970f1c966430323"
+                kind: "param"
+                name: "subscription_id"
+                orig: "subscription_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/api/v4/accounts/{account}/account-updater/subscriptions/{subscriptionId}/pan"
+          parts: [
+            "api"
+            "v4"
+            "accounts"
+            "{account_id}"
+            "account-updater"
+            "subscriptions"
+            "{subscription_id}"
+            "pan"
+          ]
+          rename: {
+            param: {
+              account: "account_id"
+              subscriptionId: "subscription_id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+              "subscription_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                example: 120615523104
+                kind: "param"
+                name: "account_id"
+                orig: "account"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: "css_42ffe2fd59e74d719970f1c966430323"
+                kind: "param"
+                name: "subscription_id"
+                orig: "subscription_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/api/v4/accounts/{account}/account-updater/subscriptions/{subscriptionId}/payconex"
+          parts: [
+            "api"
+            "v4"
+            "accounts"
+            "{account_id}"
+            "account-updater"
+            "subscriptions"
+            "{subscription_id}"
+            "payconex"
+          ]
+          rename: {
+            param: {
+              account: "account_id"
+              subscriptionId: "subscription_id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+              "subscription_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                example: 120615523104
+                kind: "param"
+                name: "account_id"
+                orig: "account"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: "css_42ffe2fd59e74d719970f1c966430323"
+                kind: "param"
+                name: "subscription_id"
+                orig: "subscription_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/api/v4/accounts/{account}/account-updater/subscriptions/{subscriptionId}/shieldconex"
+          parts: [
+            "api"
+            "v4"
+            "accounts"
+            "{account_id}"
+            "account-updater"
+            "subscriptions"
+            "{subscription_id}"
+            "shieldconex"
+          ]
+          rename: {
+            param: {
+              account: "account_id"
+              subscriptionId: "subscription_id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+              "subscription_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: 120615523104
+                kind: "param"
+                name: "account_id"
+                orig: "account"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: "css_42ffe2fd59e74d719970f1c966430323"
+                kind: "param"
+                name: "subscription_id"
+                orig: "subscription_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v4/accounts/{account}/account-updater/subscriptions/{subscriptionId}"
+          parts: [
+            "api"
+            "v4"
+            "accounts"
+            "{account_id}"
+            "account-updater"
+            "subscriptions"
+            "{subscription_id}"
+          ]
+          rename: {
+            param: {
+              account: "account_id"
+              subscriptionId: "subscription_id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+              "subscription_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: 120615523104
+                kind: "param"
+                name: "account_id"
+                orig: "account"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: "css_42ffe2fd59e74d719970f1c966430323"
+                kind: "param"
+                name: "subscription_id"
+                orig: "subscription_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PATCH"
+          orig: "/api/v4/accounts/{account}/account-updater/subscriptions/{subscriptionId}"
+          parts: [
+            "api"
+            "v4"
+            "accounts"
+            "{account_id}"
+            "account-updater"
+            "subscriptions"
+            "{subscription_id}"
+          ]
+          rename: {
+            param: {
+              account: "account_id"
+              subscriptionId: "subscription_id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+              "subscription_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "account"
+        "subscription"
+      ]
+    ]
+  }
+
+
+
+}

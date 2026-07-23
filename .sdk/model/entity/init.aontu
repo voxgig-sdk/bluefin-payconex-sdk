@@ -1,0 +1,102 @@
+# Entity: init
+
+main: kit: entity: init: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "customer"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "description"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "item"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "level2"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "level3"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "shipping_address"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "trace"
+      req: false
+      type: "`$OBJECT`"
+    }
+  ]
+
+  name: "init"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: "120615523104"
+                kind: "param"
+                name: "account_id"
+                orig: "account_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/api/v4/accounts/{accountId}/payments/init"
+          parts: [
+            "api"
+            "v4"
+            "accounts"
+            "{account_id}"
+            "payments"
+            "init"
+          ]
+          rename: {
+            param: {
+              accountId: "account_id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "account"
+      ]
+    ]
+  }
+
+
+
+}

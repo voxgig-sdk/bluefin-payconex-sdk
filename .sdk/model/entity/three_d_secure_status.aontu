@@ -1,0 +1,109 @@
+# Entity: three_d_secure_status
+
+main: kit: entity: three_d_secure_status: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "error"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "info"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "server_transaction_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "status"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "three_d_secure"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "three_d_secure_id"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "three_d_secure_status"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: "tds_23d0e53de3c64e94887116da65abc8ce"
+                kind: "param"
+                name: "3_d_id"
+                orig: "resource_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: "120615523104"
+                kind: "param"
+                name: "account_id"
+                orig: "account_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v4/accounts/{accountId}/3DS/{resourceId}/status"
+          parts: [
+            "api"
+            "v4"
+            "accounts"
+            "{account_id}"
+            "3DS"
+            "{3_d_id}"
+            "status"
+          ]
+          rename: {
+            param: {
+              accountId: "account_id"
+              resourceId: "3_d_id"
+            }
+          }
+          select: {
+            exist: [
+              "3_d_id"
+              "account_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "account"
+        "3_d"
+      ]
+    ]
+  }
+
+
+
+}

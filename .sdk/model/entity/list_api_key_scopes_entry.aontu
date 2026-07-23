@@ -1,0 +1,59 @@
+# Entity: list_api_key_scopes_entry
+
+main: kit: entity: list_api_key_scopes_entry: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "category"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "description"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "enabled"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "level"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "scope"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "list_api_key_scopes_entry"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          method: "GET"
+          orig: "/api/v4/api-key-scopes"
+          parts: [
+            "api"
+            "v4"
+            "api-key-scopes"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

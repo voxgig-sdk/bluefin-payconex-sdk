@@ -1,0 +1,303 @@
+# Entity: iframe
+
+main: kit: entity: iframe: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "ach_setting"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "allowed_parent_domain"
+      op: {
+        list: {
+          req: false
+          type: "`$ARRAY`"
+        }
+        update: {
+          req: false
+          type: "`$ARRAY`"
+        }
+      }
+      req: true
+      type: "`$ARRAY`"
+    }
+    {
+      name: "allowed_payment_method"
+      op: {
+        list: {
+          req: false
+          type: "`$ARRAY`"
+        }
+        update: {
+          req: false
+          type: "`$ARRAY`"
+        }
+      }
+      req: true
+      type: "`$ARRAY`"
+    }
+    {
+      name: "card_setting"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "click_to_pay_setting"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "currency"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "label"
+      op: {
+        list: {
+          req: false
+          type: "`$STRING`"
+        }
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "language"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "timeout"
+      req: false
+      type: "`$NUMBER`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "iframe"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: "120615523104"
+                kind: "param"
+                name: "account_id"
+                orig: "account_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/api/v4/accounts/{accountId}/payment-iframe"
+          parts: [
+            "api"
+            "v4"
+            "accounts"
+            "{account_id}"
+            "payment-iframe"
+          ]
+          rename: {
+            param: {
+              accountId: "account_id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: "120615523104"
+                kind: "param"
+                name: "account_id"
+                orig: "account_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v4/accounts/{accountId}/payment-iframe"
+          parts: [
+            "api"
+            "v4"
+            "accounts"
+            "{account_id}"
+            "payment-iframe"
+          ]
+          rename: {
+            param: {
+              accountId: "account_id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: 120615523104
+                kind: "param"
+                name: "account_id"
+                orig: "account_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: "ifr_d193148ac2624de7b43a191682a8822f"
+                kind: "param"
+                name: "iframe_id"
+                orig: "iframe_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v4/accounts/{accountId}/payment-iframe/{iframeId}"
+          parts: [
+            "api"
+            "v4"
+            "accounts"
+            "{account_id}"
+            "payment-iframe"
+            "{iframe_id}"
+          ]
+          rename: {
+            param: {
+              accountId: "account_id"
+              iframeId: "iframe_id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+              "iframe_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: 120615523104
+                kind: "param"
+                name: "account_id"
+                orig: "account_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: "ifr_d193148ac2624de7b43a191682a8822f"
+                kind: "param"
+                name: "iframe_id"
+                orig: "iframe_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PATCH"
+          orig: "/api/v4/accounts/{accountId}/payment-iframe/{iframeId}"
+          parts: [
+            "api"
+            "v4"
+            "accounts"
+            "{account_id}"
+            "payment-iframe"
+            "{iframe_id}"
+          ]
+          rename: {
+            param: {
+              accountId: "account_id"
+              iframeId: "iframe_id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+              "iframe_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "account"
+      ]
+      [
+        "account"
+        "payment_iframe"
+      ]
+    ]
+  }
+
+
+
+}

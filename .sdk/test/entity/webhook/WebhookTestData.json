@@ -1,0 +1,32 @@
+{
+  "existing": {
+    "webhook": {
+      "WEBHOOK00": {
+        "event": "s1e",
+        "id": "WEBHOOK00",
+        "url": "s20",
+        "account_id": "ACCOUNT01"
+      },
+      "WEBHOOK01": {
+        "event": "s3c",
+        "id": "WEBHOOK01",
+        "url": "s3e",
+        "account_id": "ACCOUNT01"
+      },
+      "WEBHOOK02": {
+        "event": "s5a",
+        "id": "WEBHOOK02",
+        "url": "s5c",
+        "account_id": "ACCOUNT01"
+      }
+    }
+  },
+  "new": {
+    "webhook": {
+      "webhook_ref01": {
+        "event": "s78",
+        "url": "s7a"
+      }
+    }
+  }
+}

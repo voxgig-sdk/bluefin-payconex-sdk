@@ -1,0 +1,33 @@
+# BasicThreeDSecureStatusFlow
+
+main: kit: flow: BasicThreeDSecureStatusFlow:
+{
+  entity: "three_d_secure_status",
+  kind: "basic",
+  name: "BasicThreeDSecureStatusFlow",
+  step: [
+    {
+      input: {
+        ref: "three_d_secure_status_ref01",
+        srcdatavar: "three_d_secure_status_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        account_id: "account01",
+        id: "three_d_secure_status01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-three_d_secure_status_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicThreeDSecureStatusFlow"
+}

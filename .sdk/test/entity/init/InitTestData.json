@@ -1,0 +1,52 @@
+{
+  "existing": {
+    "init": {
+      "INIT00": {
+        "customer": {},
+        "description": "s47",
+        "item": [],
+        "level2": {},
+        "level3": {},
+        "shipping_address": {},
+        "trace": {},
+        "account_id": "ACCOUNT01",
+        "id": "INIT00"
+      },
+      "INIT01": {
+        "customer": {},
+        "description": "s8d",
+        "item": [],
+        "level2": {},
+        "level3": {},
+        "shipping_address": {},
+        "trace": {},
+        "account_id": "ACCOUNT01",
+        "id": "INIT01"
+      },
+      "INIT02": {
+        "customer": {},
+        "description": "sd3",
+        "item": [],
+        "level2": {},
+        "level3": {},
+        "shipping_address": {},
+        "trace": {},
+        "account_id": "ACCOUNT01",
+        "id": "INIT02"
+      }
+    }
+  },
+  "new": {
+    "init": {
+      "init_ref01": {
+        "customer": {},
+        "description": "s119",
+        "item": [],
+        "level2": {},
+        "level3": {},
+        "shipping_address": {},
+        "trace": {}
+      }
+    }
+  }
+}

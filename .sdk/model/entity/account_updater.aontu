@@ -1,0 +1,142 @@
+# Entity: account_updater
+
+main: kit: entity: account_updater: {
+
+  alias: field: {}
+
+  name: "account_updater"
+  op: {
+    remove: {
+      name: "remove"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: 120615523104
+                kind: "param"
+                name: "account_id"
+                orig: "account"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: 120615523104
+                kind: "param"
+                name: "record_id"
+                orig: "record_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: 120615523104
+                kind: "param"
+                name: "subscription_id"
+                orig: "subscription_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/api/v4/accounts/{account}/account-updater/subscriptions/{subscriptionId}/records/{recordId}"
+          parts: [
+            "api"
+            "v4"
+            "accounts"
+            "{account_id}"
+            "account-updater"
+            "subscriptions"
+            "{subscription_id}"
+            "records"
+            "{record_id}"
+          ]
+          rename: {
+            param: {
+              account: "account_id"
+              recordId: "record_id"
+              subscriptionId: "subscription_id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+              "record_id"
+              "subscription_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                example: 120615523104
+                kind: "param"
+                name: "account_id"
+                orig: "account"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: 120615523104
+                kind: "param"
+                name: "subscription_id"
+                orig: "subscription_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/api/v4/accounts/{account}/account-updater/subscriptions/{subscriptionId}"
+          parts: [
+            "api"
+            "v4"
+            "accounts"
+            "{account_id}"
+            "account-updater"
+            "subscriptions"
+            "{subscription_id}"
+          ]
+          rename: {
+            param: {
+              account: "account_id"
+              subscriptionId: "subscription_id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+              "subscription_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "account"
+        "subscription"
+      ]
+      [
+        "account"
+        "subscription"
+        "record"
+      ]
+    ]
+  }
+
+
+
+}

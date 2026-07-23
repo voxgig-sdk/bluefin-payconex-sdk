@@ -1,0 +1,9 @@
+# BasicPaymentIframeFlow
+
+main: kit: flow: BasicPaymentIframeFlow:
+{
+  entity: "payment_iframe",
+  kind: "basic",
+  name: "BasicPaymentIframeFlow",
+  "key$": "BasicPaymentIframeFlow"
+}

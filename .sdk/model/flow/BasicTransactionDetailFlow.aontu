@@ -1,0 +1,56 @@
+# BasicTransactionDetailFlow
+
+main: kit: flow: BasicTransactionDetailFlow:
+{
+  entity: "transaction_detail",
+  kind: "basic",
+  name: "BasicTransactionDetailFlow",
+  step: [
+    {
+      data: {
+        account_id: "account01"
+      }
+
+      input: {
+        ref: "transaction_detail_ref01",
+        srcdatavar: "transaction_detail_ref01_data",
+        suffix: "_up0",
+        textfield: "description"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-transaction_detail_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "transaction_detail_ref01",
+        srcdatavar: "transaction_detail_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        account_id: "account01",
+        id: "transaction_detail01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-transaction_detail_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicTransactionDetailFlow"
+}

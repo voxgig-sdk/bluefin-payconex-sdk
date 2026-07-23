@@ -1,0 +1,23 @@
+# BasicIFrameCreateInstanceFlow
+
+main: kit: flow: BasicIFrameCreateInstanceFlow:
+{
+  entity: "i_frame_create_instance",
+  kind: "basic",
+  name: "BasicIFrameCreateInstanceFlow",
+  step: [
+    {
+      input: {
+        ref: "i_frame_create_instance_ref01"
+      }
+
+      match: {
+        account_id: "account01",
+        payment_iframe_id: "payment_iframe01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicIFrameCreateInstanceFlow"
+}

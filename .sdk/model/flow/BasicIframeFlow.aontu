@@ -1,0 +1,84 @@
+# BasicIframeFlow
+
+main: kit: flow: BasicIframeFlow:
+{
+  entity: "iframe",
+  kind: "basic",
+  name: "BasicIframeFlow",
+  step: [
+    {
+      input: {
+        ref: "iframe_ref01"
+      }
+
+      match: {
+        account_id: "account01"
+      }
+
+      op: "create"
+    }
+
+    {
+      match: {
+        account_id: "account01"
+      }
+
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "iframe_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      data: {
+        account_id: "account01"
+      }
+
+      input: {
+        ref: "iframe_ref01",
+        srcdatavar: "iframe_ref01_data",
+        suffix: "_up0",
+        textfield: "currency"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-iframe_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "iframe_ref01",
+        srcdatavar: "iframe_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        account_id: "account01",
+        id: "iframe01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-iframe_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicIframeFlow"
+}

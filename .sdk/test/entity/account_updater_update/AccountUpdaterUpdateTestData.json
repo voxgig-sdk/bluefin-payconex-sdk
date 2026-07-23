@@ -1,0 +1,64 @@
+{
+  "existing": {
+    "account_updater_update": {
+      "ACCOUNT_UPDATER_UPDATE00": {
+        "account_updater_schedule_record_id": "ACCOUNT_UPDATER_SCHEDULE_RECORD01",
+        "format": "s6f",
+        "id": "ACCOUNT_UPDATER_UPDATE00",
+        "new_expiry": "s71",
+        "new_token": "s72",
+        "old_expiry": "s73",
+        "old_token": "s74",
+        "recurring_schedule": [],
+        "status": "s76",
+        "update_id": "UPDATE01",
+        "updated_at": "s78",
+        "account_id": "ACCOUNT01"
+      },
+      "ACCOUNT_UPDATER_UPDATE01": {
+        "account_updater_schedule_record_id": "ACCOUNT_UPDATER_SCHEDULE_RECORD01",
+        "format": "sdd",
+        "id": "ACCOUNT_UPDATER_UPDATE01",
+        "new_expiry": "sdf",
+        "new_token": "se0",
+        "old_expiry": "se1",
+        "old_token": "se2",
+        "recurring_schedule": [],
+        "status": "se4",
+        "update_id": "UPDATE01",
+        "updated_at": "se6",
+        "account_id": "ACCOUNT01"
+      },
+      "ACCOUNT_UPDATER_UPDATE02": {
+        "account_updater_schedule_record_id": "ACCOUNT_UPDATER_SCHEDULE_RECORD01",
+        "format": "s14b",
+        "id": "ACCOUNT_UPDATER_UPDATE02",
+        "new_expiry": "s14d",
+        "new_token": "s14e",
+        "old_expiry": "s14f",
+        "old_token": "s150",
+        "recurring_schedule": [],
+        "status": "s152",
+        "update_id": "UPDATE01",
+        "updated_at": "s154",
+        "account_id": "ACCOUNT01"
+      }
+    }
+  },
+  "new": {
+    "account_updater_update": {
+      "account_updater_update_ref01": {
+        "account_updater_schedule_record_id": "ACCOUNT_UPDATER_SCHEDULE_RECORD01",
+        "format": "s1b9",
+        "new_expiry": "s1bb",
+        "new_token": "s1bc",
+        "old_expiry": "s1bd",
+        "old_token": "s1be",
+        "recurring_schedule": [],
+        "status": "s1c0",
+        "update_id": "UPDATE01",
+        "updated_at": "s1c2"
+      }
+    }
+  }
+}

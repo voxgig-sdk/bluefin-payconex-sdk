@@ -1,0 +1,134 @@
+# Entity: apple_pay_merchant_detail
+
+main: kit: entity: apple_pay_merchant_detail: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "domain"
+      req: true
+      type: "`$ARRAY`"
+    }
+    {
+      name: "merchant_url"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "partner_merchant_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "payconex_account_id"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "apple_pay_merchant_detail"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "account_id"
+                orig: "account_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/api/v4/accounts/{accountId}/applePay/enrollment"
+          parts: [
+            "api"
+            "v4"
+            "accounts"
+            "{account_id}"
+            "applePay"
+            "enrollment"
+          ]
+          rename: {
+            param: {
+              accountId: "account_id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "account_id"
+                orig: "account_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v4/accounts/{accountId}/applePay/enrollment"
+          parts: [
+            "api"
+            "v4"
+            "accounts"
+            "{account_id}"
+            "applePay"
+            "enrollment"
+          ]
+          rename: {
+            param: {
+              accountId: "account_id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "account"
+      ]
+    ]
+  }
+
+
+
+}

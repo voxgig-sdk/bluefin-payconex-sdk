@@ -1,0 +1,69 @@
+# BasicAccountUpdaterSubscriptionWithResultFlow
+
+main: kit: flow: BasicAccountUpdaterSubscriptionWithResultFlow:
+{
+  entity: "account_updater_subscription_with_result",
+  kind: "basic",
+  name: "BasicAccountUpdaterSubscriptionWithResultFlow",
+  step: [
+    {
+      input: {
+        ref: "account_updater_subscription_with_result_ref01"
+      }
+
+      match: {
+        account_id: "account01",
+        subscription_id: "subscription01"
+      }
+
+      op: "create"
+    }
+
+    {
+      data: {
+        account_id: "account01"
+      }
+
+      input: {
+        ref: "account_updater_subscription_with_result_ref01",
+        srcdatavar: "account_updater_subscription_with_result_ref01_data",
+        suffix: "_up0",
+        textfield: "created_at"
+      }
+
+      op: "update",
+      spec: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-account_updater_subscription_with_result_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "account_updater_subscription_with_result_ref01",
+        srcdatavar: "account_updater_subscription_with_result_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        account_id: "account01",
+        id: "account_updater_subscription_with_result01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-account_updater_subscription_with_result_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAccountUpdaterSubscriptionWithResultFlow"
+}

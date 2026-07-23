@@ -1,0 +1,93 @@
+# Entity: account_updater_schedule
+
+main: kit: entity: account_updater_schedule: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "enabled"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "period_date"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "period_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "response_format"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "token"
+      req: true
+      type: "`$ARRAY`"
+    }
+  ]
+
+  name: "account_updater_schedule"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: "120615523104"
+                kind: "param"
+                name: "account_id"
+                orig: "account_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/api/v4/accounts/{accountId}/account-updater/payconex/subscribe"
+          parts: [
+            "api"
+            "v4"
+            "accounts"
+            "{account_id}"
+            "account-updater"
+            "payconex"
+            "subscribe"
+          ]
+          rename: {
+            param: {
+              accountId: "account_id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "account"
+      ]
+    ]
+  }
+
+
+
+}

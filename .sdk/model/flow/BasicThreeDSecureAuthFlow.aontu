@@ -1,0 +1,23 @@
+# BasicThreeDSecureAuthFlow
+
+main: kit: flow: BasicThreeDSecureAuthFlow:
+{
+  entity: "three_d_secure_auth",
+  kind: "basic",
+  name: "BasicThreeDSecureAuthFlow",
+  step: [
+    {
+      input: {
+        ref: "three_d_secure_auth_ref01"
+      }
+
+      match: {
+        "3_d_id": "3_d01",
+        account_id: "account01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicThreeDSecureAuthFlow"
+}

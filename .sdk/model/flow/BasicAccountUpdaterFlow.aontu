@@ -1,0 +1,9 @@
+# BasicAccountUpdaterFlow
+
+main: kit: flow: BasicAccountUpdaterFlow:
+{
+  entity: "account_updater",
+  kind: "basic",
+  name: "BasicAccountUpdaterFlow",
+  "key$": "BasicAccountUpdaterFlow"
+}

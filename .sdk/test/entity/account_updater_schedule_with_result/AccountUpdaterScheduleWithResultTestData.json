@@ -1,0 +1,71 @@
+{
+  "existing": {
+    "account_updater_schedule_with_result": {
+      "ACCOUNT_UPDATER_SCHEDULE_WITH_RESULT00": {
+        "card": [],
+        "created_at": "s79",
+        "enabled": true,
+        "expiry": "s7b",
+        "id": "ACCOUNT_UPDATER_SCHEDULE_WITH_RESULT00",
+        "most_recent_update": {},
+        "period_date": "s7e",
+        "period_id": "PERIOD01",
+        "response_format": "s80",
+        "token": [],
+        "type": "s82",
+        "updated_at": "s83",
+        "account_id": "ACCOUNT01",
+        "schedule_id": "SCHEDULE01"
+      },
+      "ACCOUNT_UPDATER_SCHEDULE_WITH_RESULT01": {
+        "card": [],
+        "created_at": "sf1",
+        "enabled": true,
+        "expiry": "sf3",
+        "id": "ACCOUNT_UPDATER_SCHEDULE_WITH_RESULT01",
+        "most_recent_update": {},
+        "period_date": "sf6",
+        "period_id": "PERIOD01",
+        "response_format": "sf8",
+        "token": [],
+        "type": "sfa",
+        "updated_at": "sfb",
+        "account_id": "ACCOUNT01",
+        "schedule_id": "SCHEDULE01"
+      },
+      "ACCOUNT_UPDATER_SCHEDULE_WITH_RESULT02": {
+        "card": [],
+        "created_at": "s169",
+        "enabled": true,
+        "expiry": "s16b",
+        "id": "ACCOUNT_UPDATER_SCHEDULE_WITH_RESULT02",
+        "most_recent_update": {},
+        "period_date": "s16e",
+        "period_id": "PERIOD01",
+        "response_format": "s170",
+        "token": [],
+        "type": "s172",
+        "updated_at": "s173",
+        "account_id": "ACCOUNT01",
+        "schedule_id": "SCHEDULE01"
+      }
+    }
+  },
+  "new": {
+    "account_updater_schedule_with_result": {
+      "account_updater_schedule_with_result_ref01": {
+        "card": [],
+        "created_at": "s1e1",
+        "enabled": true,
+        "expiry": "s1e3",
+        "most_recent_update": {},
+        "period_date": "s1e6",
+        "period_id": "PERIOD01",
+        "response_format": "s1e8",
+        "token": [],
+        "type": "s1ea",
+        "updated_at": "s1eb"
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "existing": {
+    "i_frame_instance": {
+      "I_FRAME_INSTANCE00": {
+        "account_id": "ACCOUNT01",
+        "payment_iframe_id": "PAYMENT_IFRAME01",
+        "id": "I_FRAME_INSTANCE00"
+      },
+      "I_FRAME_INSTANCE01": {
+        "account_id": "ACCOUNT01",
+        "payment_iframe_id": "PAYMENT_IFRAME01",
+        "id": "I_FRAME_INSTANCE01"
+      },
+      "I_FRAME_INSTANCE02": {
+        "account_id": "ACCOUNT01",
+        "payment_iframe_id": "PAYMENT_IFRAME01",
+        "id": "I_FRAME_INSTANCE02"
+      }
+    }
+  },
+  "new": {
+    "i_frame_instance": {
+      "i_frame_instance_ref01": {}
+    }
+  }
+}

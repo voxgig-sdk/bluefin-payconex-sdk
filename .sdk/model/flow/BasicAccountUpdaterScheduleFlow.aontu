@@ -1,0 +1,22 @@
+# BasicAccountUpdaterScheduleFlow
+
+main: kit: flow: BasicAccountUpdaterScheduleFlow:
+{
+  entity: "account_updater_schedule",
+  kind: "basic",
+  name: "BasicAccountUpdaterScheduleFlow",
+  step: [
+    {
+      input: {
+        ref: "account_updater_schedule_ref01"
+      }
+
+      match: {
+        account_id: "account01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicAccountUpdaterScheduleFlow"
+}

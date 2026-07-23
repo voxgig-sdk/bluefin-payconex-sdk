@@ -1,0 +1,59 @@
+{
+  "existing": {
+    "account_updater_subscription_with_result": {
+      "ACCOUNT_UPDATER_SUBSCRIPTION_WITH_RESULT00": {
+        "created_at": "s5a",
+        "enabled": false,
+        "id": "ACCOUNT_UPDATER_SUBSCRIPTION_WITH_RESULT00",
+        "period_date": "s5d",
+        "period_id": "PERIOD01",
+        "record": [],
+        "response_format": "s60",
+        "template_ref": "s61",
+        "updated_at": "s62",
+        "account_id": "ACCOUNT01",
+        "subscription_id": "SUBSCRIPTION01"
+      },
+      "ACCOUNT_UPDATER_SUBSCRIPTION_WITH_RESULT01": {
+        "created_at": "sb4",
+        "enabled": false,
+        "id": "ACCOUNT_UPDATER_SUBSCRIPTION_WITH_RESULT01",
+        "period_date": "sb7",
+        "period_id": "PERIOD01",
+        "record": [],
+        "response_format": "sba",
+        "template_ref": "sbb",
+        "updated_at": "sbc",
+        "account_id": "ACCOUNT01",
+        "subscription_id": "SUBSCRIPTION01"
+      },
+      "ACCOUNT_UPDATER_SUBSCRIPTION_WITH_RESULT02": {
+        "created_at": "s10e",
+        "enabled": false,
+        "id": "ACCOUNT_UPDATER_SUBSCRIPTION_WITH_RESULT02",
+        "period_date": "s111",
+        "period_id": "PERIOD01",
+        "record": [],
+        "response_format": "s114",
+        "template_ref": "s115",
+        "updated_at": "s116",
+        "account_id": "ACCOUNT01",
+        "subscription_id": "SUBSCRIPTION01"
+      }
+    }
+  },
+  "new": {
+    "account_updater_subscription_with_result": {
+      "account_updater_subscription_with_result_ref01": {
+        "created_at": "s168",
+        "enabled": false,
+        "period_date": "s16b",
+        "period_id": "PERIOD01",
+        "record": [],
+        "response_format": "s16e",
+        "template_ref": "s16f",
+        "updated_at": "s170"
+      }
+    }
+  }
+}

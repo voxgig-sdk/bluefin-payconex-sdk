@@ -1,0 +1,29 @@
+{
+  "existing": {
+    "account_updater": {
+      "ACCOUNT_UPDATER00": {
+        "account_id": "ACCOUNT01",
+        "record_id": "RECORD01",
+        "subscription_id": "SUBSCRIPTION01",
+        "id": "ACCOUNT_UPDATER00"
+      },
+      "ACCOUNT_UPDATER01": {
+        "account_id": "ACCOUNT01",
+        "record_id": "RECORD01",
+        "subscription_id": "SUBSCRIPTION01",
+        "id": "ACCOUNT_UPDATER01"
+      },
+      "ACCOUNT_UPDATER02": {
+        "account_id": "ACCOUNT01",
+        "record_id": "RECORD01",
+        "subscription_id": "SUBSCRIPTION01",
+        "id": "ACCOUNT_UPDATER02"
+      }
+    }
+  },
+  "new": {
+    "account_updater": {
+      "account_updater_ref01": {}
+    }
+  }
+}

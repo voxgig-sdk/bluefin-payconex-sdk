@@ -1,0 +1,117 @@
+# Entity: three_d_secure_browser_init
+
+main: kit: entity: three_d_secure_browser_init: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "acs_result_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "acs_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "cvv"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "expiry"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "pan"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "payment_details_reference"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "server_transaction_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "status"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "three_d_secure_data"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "three_d_secure_id"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "three_d_secure_browser_init"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: "120615523104"
+                kind: "param"
+                name: "account_id"
+                orig: "account_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/api/v4/accounts/{accountId}/3DS/init-card-details"
+          parts: [
+            "api"
+            "v4"
+            "accounts"
+            "{account_id}"
+            "3DS"
+            "init-card-details"
+          ]
+          rename: {
+            param: {
+              accountId: "account_id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "account"
+      ]
+    ]
+  }
+
+
+
+}

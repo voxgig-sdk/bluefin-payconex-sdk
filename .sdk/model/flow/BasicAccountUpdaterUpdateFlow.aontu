@@ -1,0 +1,33 @@
+# BasicAccountUpdaterUpdateFlow
+
+main: kit: flow: BasicAccountUpdaterUpdateFlow:
+{
+  entity: "account_updater_update",
+  kind: "basic",
+  name: "BasicAccountUpdaterUpdateFlow",
+  step: [
+    {
+      input: {
+        ref: "account_updater_update_ref01",
+        srcdatavar: "account_updater_update_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        account_id: "account01",
+        id: "account_updater_update01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-account_updater_update_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAccountUpdaterUpdateFlow"
+}

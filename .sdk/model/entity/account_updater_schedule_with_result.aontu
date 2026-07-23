@@ -1,0 +1,237 @@
+# Entity: account_updater_schedule_with_result
+
+main: kit: entity: account_updater_schedule_with_result: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "card"
+      req: true
+      type: "`$ARRAY`"
+    }
+    {
+      name: "created_at"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "enabled"
+      op: {
+        list: {
+          req: true
+          type: "`$BOOLEAN`"
+        }
+      }
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "expiry"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "most_recent_update"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "period_date"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "period_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "response_format"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "token"
+      req: true
+      type: "`$ARRAY`"
+    }
+    {
+      name: "type"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "updated_at"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "account_updater_schedule_with_result"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: "120615523104"
+                kind: "param"
+                name: "account_id"
+                orig: "account_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/api/v4/accounts/{accountId}/account-updater/pan/subscribe"
+          parts: [
+            "api"
+            "v4"
+            "accounts"
+            "{account_id}"
+            "account-updater"
+            "pan"
+            "subscribe"
+          ]
+          rename: {
+            param: {
+              accountId: "account_id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            params: [
+              {
+                example: "120615523104"
+                kind: "param"
+                name: "account_id"
+                orig: "account_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/api/v4/accounts/{accountId}/account-updater/shieldconex/subscribe"
+          parts: [
+            "api"
+            "v4"
+            "accounts"
+            "{account_id}"
+            "account-updater"
+            "shieldconex"
+            "subscribe"
+          ]
+          rename: {
+            param: {
+              accountId: "account_id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: 120615523104
+                kind: "param"
+                name: "account_id"
+                orig: "account"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: "css_42ffe2fd59e74d719970f1c966430323"
+                kind: "param"
+                name: "schedule_id"
+                orig: "schedule_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v4/accounts/{account}/account-updater/schedules/{scheduleId}/results"
+          parts: [
+            "api"
+            "v4"
+            "accounts"
+            "{account_id}"
+            "account-updater"
+            "schedules"
+            "{schedule_id}"
+            "results"
+          ]
+          rename: {
+            param: {
+              account: "account_id"
+              scheduleId: "schedule_id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+              "schedule_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "account"
+      ]
+      [
+        "account"
+        "schedule"
+      ]
+    ]
+  }
+
+
+
+}

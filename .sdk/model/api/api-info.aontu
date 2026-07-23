@@ -1,0 +1,30 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        email: "support@payconex.net"
+      }
+      description: "."
+      security: {
+        in: "header"
+        name: "Authorization"
+        prefix: "Basic"
+        scheme: "basicAuth"
+        type: "http"
+      }
+      servers: [
+        {
+          url: "https://api.payconex.net/"
+        }
+      ]
+      summary: "."
+      title: "PayConex 4"
+      version: "4.0.1"
+      website: "https://developers.bluefin.com/payconex"
+    }
+  }
+}
+

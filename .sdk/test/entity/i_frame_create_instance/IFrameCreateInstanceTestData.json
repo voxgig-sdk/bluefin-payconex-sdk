@@ -1,0 +1,63 @@
+{
+  "existing": {
+    "i_frame_create_instance": {
+      "I_FRAME_CREATE_INSTANCE00": {
+        "amount": "s5a",
+        "currency": "s5b",
+        "customer": {},
+        "initialize_transaction": false,
+        "label": "s5e",
+        "language": "s5f",
+        "reference": "s60",
+        "timeout": 97,
+        "token": [],
+        "account_id": "ACCOUNT01",
+        "payment_iframe_id": "PAYMENT_IFRAME01",
+        "id": "I_FRAME_CREATE_INSTANCE00"
+      },
+      "I_FRAME_CREATE_INSTANCE01": {
+        "amount": "sb4",
+        "currency": "sb5",
+        "customer": {},
+        "initialize_transaction": false,
+        "label": "sb8",
+        "language": "sb9",
+        "reference": "sba",
+        "timeout": 187,
+        "token": [],
+        "account_id": "ACCOUNT01",
+        "payment_iframe_id": "PAYMENT_IFRAME01",
+        "id": "I_FRAME_CREATE_INSTANCE01"
+      },
+      "I_FRAME_CREATE_INSTANCE02": {
+        "amount": "s10e",
+        "currency": "s10f",
+        "customer": {},
+        "initialize_transaction": false,
+        "label": "s112",
+        "language": "s113",
+        "reference": "s114",
+        "timeout": 277,
+        "token": [],
+        "account_id": "ACCOUNT01",
+        "payment_iframe_id": "PAYMENT_IFRAME01",
+        "id": "I_FRAME_CREATE_INSTANCE02"
+      }
+    }
+  },
+  "new": {
+    "i_frame_create_instance": {
+      "i_frame_create_instance_ref01": {
+        "amount": "s168",
+        "currency": "s169",
+        "customer": {},
+        "initialize_transaction": false,
+        "label": "s16c",
+        "language": "s16d",
+        "reference": "s16e",
+        "timeout": 367,
+        "token": []
+      }
+    }
+  }
+}

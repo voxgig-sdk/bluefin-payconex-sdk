@@ -1,0 +1,51 @@
+{
+  "existing": {
+    "three_d_secure_status": {
+      "THREE_D_SECURE_STATUS00": {
+        "error": {},
+        "info": {},
+        "server_transaction_id": "SERVER_TRANSACTION01",
+        "status": "s3f",
+        "three_d_secure": {},
+        "three_d_secure_id": "THREE_D_SECURE01",
+        "3_d_id": "3_D01",
+        "account_id": "ACCOUNT01",
+        "id": "THREE_D_SECURE_STATUS00"
+      },
+      "THREE_D_SECURE_STATUS01": {
+        "error": {},
+        "info": {},
+        "server_transaction_id": "SERVER_TRANSACTION01",
+        "status": "s7b",
+        "three_d_secure": {},
+        "three_d_secure_id": "THREE_D_SECURE01",
+        "3_d_id": "3_D01",
+        "account_id": "ACCOUNT01",
+        "id": "THREE_D_SECURE_STATUS01"
+      },
+      "THREE_D_SECURE_STATUS02": {
+        "error": {},
+        "info": {},
+        "server_transaction_id": "SERVER_TRANSACTION01",
+        "status": "sb7",
+        "three_d_secure": {},
+        "three_d_secure_id": "THREE_D_SECURE01",
+        "3_d_id": "3_D01",
+        "account_id": "ACCOUNT01",
+        "id": "THREE_D_SECURE_STATUS02"
+      }
+    }
+  },
+  "new": {
+    "three_d_secure_status": {
+      "three_d_secure_status_ref01": {
+        "error": {},
+        "info": {},
+        "server_transaction_id": "SERVER_TRANSACTION01",
+        "status": "sf3",
+        "three_d_secure": {},
+        "three_d_secure_id": "THREE_D_SECURE01"
+      }
+    }
+  }
+}

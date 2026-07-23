@@ -1,0 +1,220 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 20
+  metrics: count: path: 28
+  metrics: count: method: 44
+
+  entity: account_updater: {
+    path: "/api/v4/accounts/{account}/account-updater/subscriptions/{subscriptionId}": {
+      rename: param: "account": *"account_id"
+      rename: param: "subscriptionId": *"subscription_id"
+      op: remove: method: *DELETE
+    }
+    path: "/api/v4/accounts/{account}/account-updater/subscriptions/{subscriptionId}/records/{recordId}": {
+      rename: param: "account": *"account_id"
+      rename: param: "recordId": *"record_id"
+      rename: param: "subscriptionId": *"subscription_id"
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: account_updater_schedule: {
+    path: "/api/v4/accounts/{accountId}/account-updater/payconex/subscribe": {
+      rename: param: "accountId": *"account_id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: account_updater_schedule_with_result: {
+    path: "/api/v4/accounts/{accountId}/account-updater/pan/subscribe": {
+      rename: param: "accountId": *"account_id"
+      op: create: method: *POST
+    }
+    path: "/api/v4/accounts/{accountId}/account-updater/shieldconex/subscribe": {
+      rename: param: "accountId": *"account_id"
+      op: create: method: *POST
+    }
+    path: "/api/v4/accounts/{account}/account-updater/schedules/{scheduleId}/results": {
+      rename: param: "account": *"account_id"
+      rename: param: "scheduleId": *"schedule_id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: account_updater_subscription_with_result: {
+    path: "/api/v4/accounts/{account}/account-updater/subscriptions/{subscriptionId}": {
+      rename: param: "account": *"account_id"
+      rename: param: "subscriptionId": *"subscription_id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+    path: "/api/v4/accounts/{account}/account-updater/subscriptions/{subscriptionId}/pan": {
+      rename: param: "account": *"account_id"
+      rename: param: "subscriptionId": *"subscription_id"
+      op: create: method: *POST
+    }
+    path: "/api/v4/accounts/{account}/account-updater/subscriptions/{subscriptionId}/payconex": {
+      rename: param: "account": *"account_id"
+      rename: param: "subscriptionId": *"subscription_id"
+      op: create: method: *POST
+    }
+    path: "/api/v4/accounts/{account}/account-updater/subscriptions/{subscriptionId}/shieldconex": {
+      rename: param: "account": *"account_id"
+      rename: param: "subscriptionId": *"subscription_id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: account_updater_update: {
+    path: "/api/v4/accounts/{account}/account-updater/updates/{updateId}": {
+      rename: param: "account": *"account_id"
+      rename: param: "updateId": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: api_key: {
+    path: "/api/v4/accounts/{accountId}/api-keys": {
+      rename: param: "accountId": *"account_id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/api/v4/accounts/{accountId}/api-keys/{resourceId}": {
+      rename: param: "accountId": *"account_id"
+      rename: param: "resourceId": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: apple_pay_merchant_detail: {
+    path: "/api/v4/accounts/{accountId}/applePay/enrollment": {
+      rename: param: "accountId": *"account_id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+  }
+
+  entity: apple_pay_session: {
+    path: "/api/v4/accounts/{accountId}/applePay/session": {
+      rename: param: "accountId": *"account_id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: dynamic_descriptor: {
+    path: "/api/v4/accounts/{accountId}/dynamic_descriptors": {
+      rename: param: "accountId": *"account_id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/api/v4/accounts/{accountId}/dynamic_descriptors/{id}": {
+      rename: param: "accountId": *"account_id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: i_frame_create_instance: {
+    path: "/api/v4/accounts/{accountId}/payment-iframe/{iframeId}/instance/init": {
+      rename: param: "accountId": *"account_id"
+      rename: param: "iframeId": *"payment_iframe_id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: i_frame_instance: {
+    path: "/api/v4/accounts/{accountId}/payment-iframe/{iframeId}/instance/{iframeInstanceId}": {
+      rename: param: "accountId": *"account_id"
+      rename: param: "iframeId": *"payment_iframe_id"
+      rename: param: "iframeInstanceId": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: iframe: {
+    path: "/api/v4/accounts/{accountId}/payment-iframe": {
+      rename: param: "accountId": *"account_id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/api/v4/accounts/{accountId}/payment-iframe/{iframeId}": {
+      rename: param: "accountId": *"account_id"
+      rename: param: "iframeId": *"iframe_id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: init: {
+    path: "/api/v4/accounts/{accountId}/payments/init": {
+      rename: param: "accountId": *"account_id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: list_api_key_scopes_entry: {
+    path: "/api/v4/api-key-scopes": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: payment_iframe: {
+    path: "/api/v4/accounts/{accountId}/payment-iframe/{iframeId}": {
+      rename: param: "accountId": *"account_id"
+      rename: param: "iframeId": *"id"
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: three_d_secure_auth: {
+    path: "/api/v4/accounts/{accountId}/3DS/{resourceId}/browser-authenticate": {
+      rename: param: "accountId": *"account_id"
+      rename: param: "resourceId": *"3_d_id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: three_d_secure_browser_init: {
+    path: "/api/v4/accounts/{accountId}/3DS/init-card-details": {
+      rename: param: "accountId": *"account_id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: three_d_secure_status: {
+    path: "/api/v4/accounts/{accountId}/3DS/{resourceId}/status": {
+      rename: param: "accountId": *"account_id"
+      rename: param: "resourceId": *"3_d_id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: transaction_detail: {
+    path: "/api/v4/accounts/{accountId}/payments/{transactionId}": {
+      rename: param: "accountId": *"account_id"
+      rename: param: "transactionId": *"transaction_id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: webhook: {
+    path: "/api/v4/accounts/{accountId}/webhooks": {
+      rename: param: "accountId": *"account_id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/api/v4/accounts/{accountId}/webhooks/{webhookID}": {
+      rename: param: "accountId": *"account_id"
+      rename: param: "webhookID": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+  }
+
+}

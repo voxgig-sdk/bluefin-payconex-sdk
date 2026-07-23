@@ -1,0 +1,68 @@
+{
+  "existing": {
+    "apple_pay_session": {
+      "APPLE_PAY_SESSION00": {
+        "display_name": "s6e",
+        "domain_name": "s6f",
+        "epoch_timestamp": "s70",
+        "expires_at": "s71",
+        "merchant_identifier": "s72",
+        "merchant_session_identifier": "s73",
+        "nonce": "s74",
+        "operational_analytics_identifier": "s75",
+        "referrer": "s76",
+        "retry": "s77",
+        "signature": "s78",
+        "account_id": "ACCOUNT01",
+        "id": "APPLE_PAY_SESSION00"
+      },
+      "APPLE_PAY_SESSION01": {
+        "display_name": "sdc",
+        "domain_name": "sdd",
+        "epoch_timestamp": "sde",
+        "expires_at": "sdf",
+        "merchant_identifier": "se0",
+        "merchant_session_identifier": "se1",
+        "nonce": "se2",
+        "operational_analytics_identifier": "se3",
+        "referrer": "se4",
+        "retry": "se5",
+        "signature": "se6",
+        "account_id": "ACCOUNT01",
+        "id": "APPLE_PAY_SESSION01"
+      },
+      "APPLE_PAY_SESSION02": {
+        "display_name": "s14a",
+        "domain_name": "s14b",
+        "epoch_timestamp": "s14c",
+        "expires_at": "s14d",
+        "merchant_identifier": "s14e",
+        "merchant_session_identifier": "s14f",
+        "nonce": "s150",
+        "operational_analytics_identifier": "s151",
+        "referrer": "s152",
+        "retry": "s153",
+        "signature": "s154",
+        "account_id": "ACCOUNT01",
+        "id": "APPLE_PAY_SESSION02"
+      }
+    }
+  },
+  "new": {
+    "apple_pay_session": {
+      "apple_pay_session_ref01": {
+        "display_name": "s1b8",
+        "domain_name": "s1b9",
+        "epoch_timestamp": "s1ba",
+        "expires_at": "s1bb",
+        "merchant_identifier": "s1bc",
+        "merchant_session_identifier": "s1bd",
+        "nonce": "s1be",
+        "operational_analytics_identifier": "s1bf",
+        "referrer": "s1c0",
+        "retry": "s1c1",
+        "signature": "s1c2"
+      }
+    }
+  }
+}

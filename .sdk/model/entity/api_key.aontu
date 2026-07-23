@@ -1,0 +1,358 @@
+# Entity: api_key
+
+main: kit: entity: api_key: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "account"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "enabled"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "expires_at"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "expires_in"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "label"
+      op: {
+        create: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "method"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "scope"
+      op: {
+        create: {
+          req: true
+          type: "`$ARRAY`"
+        }
+      }
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "secret"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "api_key"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: "120615523104"
+                kind: "param"
+                name: "account_id"
+                orig: "account_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/api/v4/accounts/{accountId}/api-keys"
+          parts: [
+            "api"
+            "v4"
+            "accounts"
+            "{account_id}"
+            "api-keys"
+          ]
+          rename: {
+            param: {
+              accountId: "account_id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: 180000027666
+                kind: "param"
+                name: "account_id"
+                orig: "account_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                example: 25
+                kind: "query"
+                name: "limit"
+                orig: "limit"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 5
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: "words to search"
+                kind: "query"
+                name: "query"
+                orig: "query"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v4/accounts/{accountId}/api-keys"
+          parts: [
+            "api"
+            "v4"
+            "accounts"
+            "{account_id}"
+            "api-keys"
+          ]
+          rename: {
+            param: {
+              accountId: "account_id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+              "limit"
+              "page"
+              "query"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: 180000027666
+                kind: "param"
+                name: "account_id"
+                orig: "account_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: "api_d193148ac2624de7b43a191682a8822f"
+                kind: "param"
+                name: "id"
+                orig: "resource_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v4/accounts/{accountId}/api-keys/{resourceId}"
+          parts: [
+            "api"
+            "v4"
+            "accounts"
+            "{account_id}"
+            "api-keys"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              accountId: "account_id"
+              resourceId: "id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: 180000027666
+                kind: "param"
+                name: "account_id"
+                orig: "account_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: "api_d193148ac2624de7b43a191682a8822f"
+                kind: "param"
+                name: "id"
+                orig: "resource_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/api/v4/accounts/{accountId}/api-keys/{resourceId}"
+          parts: [
+            "api"
+            "v4"
+            "accounts"
+            "{account_id}"
+            "api-keys"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              accountId: "account_id"
+              resourceId: "id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: 180000027666
+                kind: "param"
+                name: "account_id"
+                orig: "account_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: "api_d193148ac2624de7b43a191682a8822f"
+                kind: "param"
+                name: "id"
+                orig: "resource_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PATCH"
+          orig: "/api/v4/accounts/{accountId}/api-keys/{resourceId}"
+          parts: [
+            "api"
+            "v4"
+            "accounts"
+            "{account_id}"
+            "api-keys"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              accountId: "account_id"
+              resourceId: "id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "account"
+      ]
+    ]
+  }
+
+
+
+}

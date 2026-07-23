@@ -1,0 +1,287 @@
+# Entity: webhook
+
+main: kit: entity: webhook: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "event"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "url"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "webhook"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: "120615523104"
+                kind: "param"
+                name: "account_id"
+                orig: "account_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/api/v4/accounts/{accountId}/webhooks"
+          parts: [
+            "api"
+            "v4"
+            "accounts"
+            "{account_id}"
+            "webhooks"
+          ]
+          rename: {
+            param: {
+              accountId: "account_id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: "120615523104"
+                kind: "param"
+                name: "account_id"
+                orig: "account_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v4/accounts/{accountId}/webhooks"
+          parts: [
+            "api"
+            "v4"
+            "accounts"
+            "{account_id}"
+            "webhooks"
+          ]
+          rename: {
+            param: {
+              accountId: "account_id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: 120615523104
+                kind: "param"
+                name: "account_id"
+                orig: "account_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: "wbh_d193148ac2624de7b43a191682a8822f"
+                kind: "param"
+                name: "id"
+                orig: "webhook_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v4/accounts/{accountId}/webhooks/{webhookID}"
+          parts: [
+            "api"
+            "v4"
+            "accounts"
+            "{account_id}"
+            "webhooks"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              accountId: "account_id"
+              webhookID: "id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: 120615523104
+                kind: "param"
+                name: "account_id"
+                orig: "account_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: "wbh_d193148ac2624de7b43a191682a8822f"
+                kind: "param"
+                name: "id"
+                orig: "webhook_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "DELETE"
+          orig: "/api/v4/accounts/{accountId}/webhooks/{webhookID}"
+          parts: [
+            "api"
+            "v4"
+            "accounts"
+            "{account_id}"
+            "webhooks"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              accountId: "account_id"
+              webhookID: "id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: 120615523104
+                kind: "param"
+                name: "account_id"
+                orig: "account_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: "wbh_d193148ac2624de7b43a191682a8822f"
+                kind: "param"
+                name: "id"
+                orig: "webhook_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PATCH"
+          orig: "/api/v4/accounts/{accountId}/webhooks/{webhookID}"
+          parts: [
+            "api"
+            "v4"
+            "accounts"
+            "{account_id}"
+            "webhooks"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              accountId: "account_id"
+              webhookID: "id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "account"
+      ]
+    ]
+  }
+
+
+
+}

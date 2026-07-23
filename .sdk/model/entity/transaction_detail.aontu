@@ -1,0 +1,212 @@
+# Entity: transaction_detail
+
+main: kit: entity: transaction_detail: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "amount"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "auth"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "card"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "customer"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "description"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "item"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "level2"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "level3"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "override"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "shipping_address"
+      op: {
+        update: {
+          req: false
+          type: "`$OBJECT`"
+        }
+      }
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "status"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "timestamp"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "trace"
+      req: false
+      type: "`$OBJECT`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "transaction_detail"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: "120615523104"
+                kind: "param"
+                name: "account_id"
+                orig: "account_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: 1861
+                kind: "param"
+                name: "transaction_id"
+                orig: "transaction_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/api/v4/accounts/{accountId}/payments/{transactionId}"
+          parts: [
+            "api"
+            "v4"
+            "accounts"
+            "{account_id}"
+            "payments"
+            "{transaction_id}"
+          ]
+          rename: {
+            param: {
+              accountId: "account_id"
+              transactionId: "transaction_id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+              "transaction_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: "120615523104"
+                kind: "param"
+                name: "account_id"
+                orig: "account_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+              {
+                example: 1861
+                kind: "param"
+                name: "transaction_id"
+                orig: "transaction_id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "PATCH"
+          orig: "/api/v4/accounts/{accountId}/payments/{transactionId}"
+          parts: [
+            "api"
+            "v4"
+            "accounts"
+            "{account_id}"
+            "payments"
+            "{transaction_id}"
+          ]
+          rename: {
+            param: {
+              accountId: "account_id"
+              transactionId: "transaction_id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+              "transaction_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "account"
+        "payment"
+      ]
+    ]
+  }
+
+
+
+}

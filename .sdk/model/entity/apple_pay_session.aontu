@@ -1,0 +1,121 @@
+# Entity: apple_pay_session
+
+main: kit: entity: apple_pay_session: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "display_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "domain_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "epoch_timestamp"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "expires_at"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "merchant_identifier"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "merchant_session_identifier"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "nonce"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "operational_analytics_identifier"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "referrer"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "retry"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "signature"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "apple_pay_session"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "account_id"
+                orig: "account_id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "POST"
+          orig: "/api/v4/accounts/{accountId}/applePay/session"
+          parts: [
+            "api"
+            "v4"
+            "accounts"
+            "{account_id}"
+            "applePay"
+            "session"
+          ]
+          rename: {
+            param: {
+              accountId: "account_id"
+            }
+          }
+          select: {
+            exist: [
+              "account_id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "account"
+      ]
+    ]
+  }
+
+
+
+}

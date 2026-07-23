@@ -1,0 +1,44 @@
+{
+  "existing": {
+    "account_updater_schedule": {
+      "ACCOUNT_UPDATER_SCHEDULE00": {
+        "enabled": true,
+        "period_date": "s33",
+        "period_id": "PERIOD01",
+        "response_format": "s35",
+        "token": [],
+        "account_id": "ACCOUNT01",
+        "id": "ACCOUNT_UPDATER_SCHEDULE00"
+      },
+      "ACCOUNT_UPDATER_SCHEDULE01": {
+        "enabled": true,
+        "period_date": "s65",
+        "period_id": "PERIOD01",
+        "response_format": "s67",
+        "token": [],
+        "account_id": "ACCOUNT01",
+        "id": "ACCOUNT_UPDATER_SCHEDULE01"
+      },
+      "ACCOUNT_UPDATER_SCHEDULE02": {
+        "enabled": true,
+        "period_date": "s97",
+        "period_id": "PERIOD01",
+        "response_format": "s99",
+        "token": [],
+        "account_id": "ACCOUNT01",
+        "id": "ACCOUNT_UPDATER_SCHEDULE02"
+      }
+    }
+  },
+  "new": {
+    "account_updater_schedule": {
+      "account_updater_schedule_ref01": {
+        "enabled": true,
+        "period_date": "sc9",
+        "period_id": "PERIOD01",
+        "response_format": "scb",
+        "token": []
+      }
+    }
+  }
+}

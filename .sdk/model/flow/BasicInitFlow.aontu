@@ -1,0 +1,22 @@
+# BasicInitFlow
+
+main: kit: flow: BasicInitFlow:
+{
+  entity: "init",
+  kind: "basic",
+  name: "BasicInitFlow",
+  step: [
+    {
+      input: {
+        ref: "init_ref01"
+      }
+
+      match: {
+        account_id: "account01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicInitFlow"
+}
