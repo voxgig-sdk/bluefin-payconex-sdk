@@ -7,7 +7,7 @@ main: {
       contact: {
         email: "support@payconex.net"
       }
-      description: "."
+      description: "The PayConex 4 API."
       security: {
         in: "header"
         name: "Authorization"
@@ -20,7 +20,6 @@ main: {
           url: "https://api.payconex.net/"
         }
       ]
-      summary: "."
       title: "PayConex 4"
       version: "4.0.1"
       website: "https://developers.bluefin.com/payconex"

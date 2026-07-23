@@ -59,7 +59,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local accountupdaterschedulewithresults, err = client:AccountUpdaterScheduleWithResult():list()
+local threedsecurestatus, err = client:ThreeDSecureStatus():load({ ["3_d_id"] = "example", account_id = "example" })
 if err then error(err) end
 ```
 
@@ -117,7 +117,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:AccountUpdaterScheduleWithResult():list()
+local result, err = client:ThreeDSecureStatus():load({ ["3_d_id"] = "example", account_id = "example" })
 -- result is the returned data; err is set on failure
 ```
 
@@ -1325,15 +1325,15 @@ when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `list`, the entity
+Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local accountupdaterschedulewithresult = client:AccountUpdaterScheduleWithResult()
-accountupdaterschedulewithresult:list()
+local threedsecurestatus = client:ThreeDSecureStatus()
+threedsecurestatus:load({ ["3_d_id"] = "example", account_id = "example" })
 
--- accountupdaterschedulewithresult:data_get() now returns the accountupdaterschedulewithresult data from the last list
--- accountupdaterschedulewithresult:match_get() returns the last match criteria
+-- threedsecurestatus:data_get() now returns the threedsecurestatus data from the last load
+-- threedsecurestatus:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

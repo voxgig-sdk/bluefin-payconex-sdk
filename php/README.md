@@ -62,7 +62,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $accountupdaterschedulewithresults = $client->AccountUpdaterScheduleWithResult()->list();
+    $threedsecurestatus = $client->ThreeDSecureStatus()->load(["3_d_id" => "example", "account_id" => "example"]);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -135,8 +135,8 @@ Create a mock client for unit testing — no server required:
 $client = BluefinPayconexSDK::test();
 
 // Entity ops return the bare mock record (throws on error).
-$accountupdaterschedulewithresult = $client->AccountUpdaterScheduleWithResult()->list();
-print_r($accountupdaterschedulewithresult);
+$threedsecurestatus = $client->ThreeDSecureStatus()->load(["3_d_id" => "example", "account_id" => "example"]);
+print_r($threedsecurestatus);
 ```
 
 ### Use a custom fetch function
@@ -1359,15 +1359,15 @@ when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `list`, the entity
+Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$accountupdaterschedulewithresult = $client->AccountUpdaterScheduleWithResult();
-$accountupdaterschedulewithresult->list();
+$threedsecurestatus = $client->ThreeDSecureStatus();
+$threedsecurestatus->load(["3_d_id" => "example", "account_id" => "example"]);
 
-// $accountupdaterschedulewithresult->data_get() now returns the accountupdaterschedulewithresult data from the last list
-// $accountupdaterschedulewithresult->match_get() returns the last match criteria
+// $threedsecurestatus->data_get() now returns the threedsecurestatus data from the last load
+// $threedsecurestatus->match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

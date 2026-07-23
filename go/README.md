@@ -69,12 +69,12 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-accountupdaterschedulewithresults, err := client.AccountUpdaterScheduleWithResult(nil).List(nil, nil)
+threedsecurestatus, err := client.ThreeDSecureStatus(nil).Load(map[string]any{"3_d_id": "example", "account_id": "example"}, nil)
 if err != nil {
     // handle err
     return
 }
-_ = accountupdaterschedulewithresults
+_ = threedsecurestatus
 ```
 
 `Direct` follows the same `(value, error)` convention:
@@ -138,13 +138,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-accountUpdaterScheduleWithResult, err := client.AccountUpdaterScheduleWithResult(nil).List(
-    nil, nil,
+threeDSecureStatus, err := client.ThreeDSecureStatus(nil).Load(
+    map[string]any{"3_d_id": "example", "account_id": "example"}, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(accountUpdaterScheduleWithResult) // the returned mock data
+fmt.Println(threeDSecureStatus) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -1463,15 +1463,15 @@ like `core.ToMapAny`.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `List`, the entity
+Entity instances are stateful. After a successful `Load`, the entity
 stores the returned data and match criteria internally.
 
 ```go
-accountupdaterschedulewithresult := client.AccountUpdaterScheduleWithResult(nil)
-accountupdaterschedulewithresult.List(nil, nil)
+threedsecurestatus := client.ThreeDSecureStatus(nil)
+threedsecurestatus.Load(map[string]any{"3_d_id": "example", "account_id": "example"}, nil)
 
-// accountupdaterschedulewithresult.Data() now returns the accountupdaterschedulewithresult data from the last list
-// accountupdaterschedulewithresult.Match() returns the last match criteria
+// threedsecurestatus.Data() now returns the threedsecurestatus data from the last load
+// threedsecurestatus.Match() returns the last match criteria
 ```
 
 Call `Make()` to create a fresh instance with the same configuration

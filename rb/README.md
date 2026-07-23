@@ -60,9 +60,9 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  accountupdaterschedulewithresults = client.AccountUpdaterScheduleWithResult.list()
+  threedsecurestatus = client.ThreeDSecureStatus.load({ "3_d_id" => "example", "account_id" => "example" })
 rescue => err
-  warn "list failed: #{err}"
+  warn "load failed: #{err}"
 end
 ```
 
@@ -129,8 +129,8 @@ Create a mock client for unit testing — no server required:
 client = BluefinPayconexSDK.test
 
 # Entity ops return the bare mock record (raises on error).
-accountupdaterschedulewithresult = client.AccountUpdaterScheduleWithResult.list()
-puts accountupdaterschedulewithresult
+threedsecurestatus = client.ThreeDSecureStatus.load({ "3_d_id" => "example", "account_id" => "example" })
+puts threedsecurestatus
 ```
 
 ### Use a custom fetch function
@@ -1349,15 +1349,15 @@ when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `list`, the entity
+Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-accountupdaterschedulewithresult = client.AccountUpdaterScheduleWithResult
-accountupdaterschedulewithresult.list()
+threedsecurestatus = client.ThreeDSecureStatus
+threedsecurestatus.load({ "3_d_id" => "example", "account_id" => "example" })
 
-# accountupdaterschedulewithresult.data_get now returns the accountupdaterschedulewithresult data from the last list
-# accountupdaterschedulewithresult.match_get returns the last match criteria
+# threedsecurestatus.data_get now returns the threedsecurestatus data from the last load
+# threedsecurestatus.match_get returns the last match criteria
 ```
 
 Call `make` to create a fresh instance with the same configuration

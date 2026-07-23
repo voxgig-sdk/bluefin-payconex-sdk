@@ -69,10 +69,10 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const accountupdaterschedulewithresults = await client.AccountUpdaterScheduleWithResult().list()
-  console.log(accountupdaterschedulewithresults)
+  const threedsecurestatus = await client.ThreeDSecureStatus().load({ '3_d_id': "example", account_id: "example" })
+  console.log(threedsecurestatus)
 } catch (err) {
-  console.error('list failed:', err)
+  console.error('load failed:', err)
 }
 ```
 
@@ -136,9 +136,9 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = BluefinPayconexSDK.test()
 
-const accountupdaterschedulewithresult = await client.AccountUpdaterScheduleWithResult().list()
-// accountupdaterschedulewithresult is a bare entity populated with mock response data
-console.log(accountupdaterschedulewithresult)
+const threedsecurestatus = await client.ThreeDSecureStatus().load({ '3_d_id': 'example_3_d_id', account_id: 'example_account_id' })
+// threedsecurestatus is a bare entity populated with mock response data
+console.log(threedsecurestatus)
 ```
 
 You can also use the instance method:
@@ -153,14 +153,14 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.AccountUpdaterScheduleWithResult()
+const entity = client.ThreeDSecureStatus()
 
 // First call runs the operation and stores its result
-await entity.list()
+await entity.load({ '3_d_id': 'example_3_d_id', account_id: 'example_account_id' })
 
 // Subsequent calls reuse the stored state
 const data = entity.data()
-console.log(data.id)
+console.log(data)
 ```
 
 ### Add custom middleware
@@ -1385,16 +1385,16 @@ import { BluefinPayconexSDK } from '@voxgig-sdk/bluefin-payconex'
 
 ### Entity state
 
-Entity instances are stateful. After a successful `list`, the entity
+Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const accountupdaterschedulewithresult = client.AccountUpdaterScheduleWithResult()
-await accountupdaterschedulewithresult.list()
+const threedsecurestatus = client.ThreeDSecureStatus()
+await threedsecurestatus.load({ '3_d_id': "example", account_id: "example" })
 
-// accountupdaterschedulewithresult.data() now returns the accountupdaterschedulewithresult data from the last `list`
-// accountupdaterschedulewithresult.match() returns the last match criteria
+// threedsecurestatus.data() now returns the threedsecurestatus data from the last `load`
+// threedsecurestatus.match() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration
