@@ -1,0 +1,152 @@
+package voxgig.bluefinpayconexsdk.sdktest
+
+import java.util.function.BiFunction
+import java.util.function.Supplier
+
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertNotNull
+import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.Assumptions
+import org.junit.jupiter.api.Test
+
+import voxgig.bluefinpayconexsdk.core.Helpers
+import voxgig.bluefinpayconexsdk.core.BluefinPayconexSDK
+import voxgig.bluefinpayconexsdk.utility.Json
+
+@Suppress("UNCHECKED_CAST", "UNUSED_VARIABLE")
+class IFrameInstanceDirectTest {
+
+  @Test
+  fun directLoadIFrameInstance() {
+    val setup = directSetup(jm("id", "direct01"))
+    val mode = if (setup.live) "live" else "unit"
+    val reason = RunnerSupport.skipReason("direct", "direct-load-i_frame_instance", mode)
+    Assumptions.assumeTrue(
+      reason == null,
+      if (reason == null || "" == reason) "skipped via sdk-test-control.json" else reason,
+    )
+    val client = setup.client
+
+    val params = linkedMapOf<String, Any?>()
+    val query = linkedMapOf<String, Any?>()
+    if (setup.live) {
+      params["account_id"] = 120615523104
+      params["id"] = "ifri_2a08d8fc30b64a8a9d8b9f0ec37b59c9"
+      params["payment_iframe_id"] = "ifr_2a08d8fc30b64a8a9d8b9f0ec37b59c9"
+    } else {
+      params["account_id"] = "direct01"
+      params["id"] = "direct02"
+      params["payment_iframe_id"] = "direct03"
+    }
+
+    val result = client.direct(jm(
+        "path", "api/v4/accounts/{account_id}/payment-iframe/{payment_iframe_id}/instance/{id}",
+        "method", "GET",
+        "params", params,
+        "query", query))
+    if (setup.live) {
+      Assumptions.assumeTrue(result["ok"] == true,
+          "load call not ok (likely synthetic IDs against live API): " + result)
+      val status = Helpers.toInt(result["status"])
+      Assumptions.assumeTrue(status in 200..299, "expected 2xx status, got " + result["status"])
+    } else {
+      assertEquals(true, result["ok"], "expected ok to be true")
+      assertEquals(200, Helpers.toInt(result["status"]), "expected status 200")
+      assertNotNull(result["data"], "expected data to be non-null")
+    }
+
+    if (!setup.live) {
+      val dataMap = Helpers.toMapAny(result["data"])
+      if (dataMap != null) {
+        assertEquals("direct01", dataMap["id"], "expected data.id to be direct01")
+      }
+
+      assertEquals(1, setup.calls.size, "expected 1 call")
+      val call = setup.calls[0]
+      val initMap = Helpers.toMapAny(call["init"])
+      if (initMap != null) {
+        assertEquals("GET", initMap["method"], "expected method GET")
+      }
+      val url = if (call["url"] is String) call["url"] as String else ""
+      assertTrue(url.contains("direct01"),
+          "expected url to contain direct01, got " + url)
+      assertTrue(url.contains("direct02"),
+          "expected url to contain direct02, got " + url)
+      assertTrue(url.contains("direct03"),
+          "expected url to contain direct03, got " + url)
+    }
+  }
+
+  companion object {
+    fun jm(vararg kv: Any?): MutableMap<String, Any?> {
+      val out = linkedMapOf<String, Any?>()
+      var i = 0
+      while (i < kv.size - 1) {
+        out[kv[i].toString()] = kv[i + 1]
+        i += 2
+      }
+      return out
+    }
+
+    class DirectSetup {
+      lateinit var client: BluefinPayconexSDK
+      var calls: MutableList<MutableMap<String, Any?>> = mutableListOf()
+      var live: Boolean = false
+      var idmap: MutableMap<String, Any?> = linkedMapOf()
+    }
+
+    fun directSetup(mockres: Any?): DirectSetup {
+      RunnerSupport.loadEnvLocal()
+
+      val calls = mutableListOf<MutableMap<String, Any?>>()
+
+      val envm = linkedMapOf<String, Any?>()
+      envm["BLUEFINPAYCONEX_TEST_I_FRAME_INSTANCE_ENTID"] = linkedMapOf<String, Any?>()
+      envm["BLUEFINPAYCONEX_TEST_LIVE"] = "FALSE"
+      envm["BLUEFINPAYCONEX_APIKEY"] = "NONE"
+      val env = RunnerSupport.envOverride(envm)
+
+      val live = "TRUE" == env["BLUEFINPAYCONEX_TEST_LIVE"]
+
+      val setup = DirectSetup()
+      setup.calls = calls
+
+      if (live) {
+        val mergedOpts = linkedMapOf<String, Any?>()
+        mergedOpts["apikey"] = env["BLUEFINPAYCONEX_APIKEY"]
+        setup.client = BluefinPayconexSDK(mergedOpts)
+        setup.live = true
+
+        var idmap: MutableMap<String, Any?> = linkedMapOf()
+        val entidRaw = env["BLUEFINPAYCONEX_TEST_I_FRAME_INSTANCE_ENTID"]
+        if (entidRaw is String && entidRaw.startsWith("{")) {
+          val parsed = Helpers.toMapAny(Json.parseOrNull(entidRaw))
+          if (parsed != null) {
+            idmap = parsed
+          }
+        } else if (entidRaw is MutableMap<*, *>) {
+          idmap = entidRaw as MutableMap<String, Any?>
+        }
+        setup.idmap = idmap
+        return setup
+      }
+
+      val mockdata: Any? = mockres ?: jm("id", "direct01")
+      val mockFetch = BiFunction<String, MutableMap<String, Any?>, MutableMap<String, Any?>> { url, init ->
+        calls.add(jm("url", url, "init", init))
+        jm(
+            "status", 200,
+            "statusText", "OK",
+            "headers", linkedMapOf<String, Any?>(),
+            "json", Supplier<Any?> { mockdata })
+      }
+
+      setup.client = BluefinPayconexSDK(jm(
+          "base", "http://localhost:8080",
+          "system", jm("fetch", mockFetch)))
+      setup.live = false
+      setup.idmap = linkedMapOf()
+      return setup
+    }
+  }
+}
