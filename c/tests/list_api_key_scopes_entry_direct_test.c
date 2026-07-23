@@ -28,7 +28,7 @@ static BluefinPayconexSDK* list_api_key_scopes_entry_direct_setup(voxgig_value* 
   voxgig_value* opts = cmap(2,
     "base", v_str("http://localhost:8080"),
     "system", cmap(1, "fetch", vfn(list_api_key_scopes_entry_mock, mockres)));
-  return bluefin_payconex_sdk_new(opts);
+  return bluefinpayconex_sdk_new(opts);
 }
 
 int main(void) {
@@ -56,5 +56,5 @@ int main(void) {
     CHECK_INT_EQ(CALLS, 1, "list: one call");
   }
 
-  TEST_SUMMARY("bluefin_payconex_list_api_key_scopes_entry_direct");
+  TEST_SUMMARY("bluefinpayconex_list_api_key_scopes_entry_direct");
 }

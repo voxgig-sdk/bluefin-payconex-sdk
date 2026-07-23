@@ -4,7 +4,7 @@
 
 The C SDK for the BluefinPayconex API — an entity-oriented client following idiomatic C conventions (explicit structs, function-pointer vtables, and a trailing `PNError**` out-param for errors).
 
-The SDK exposes the API as capitalised, semantic **Entities** — for example `bluefin_payconex_account_updater(client, NULL)` — each
+The SDK exposes the API as capitalised, semantic **Entities** — for example `bluefinpayconex_account_updater(client, NULL)` — each
 carrying a small, uniform set of operations (`list`, `load`, `create`, `update`, `remove`) instead of raw URL
 paths and query strings. You work with named resources and verbs, which
 keeps the cognitive load low.
@@ -43,7 +43,7 @@ loading a specific record.
 ```c
 #include "core/api.h"
 
-BluefinPayconexSDK* client = bluefin_payconex_sdk_new(cmap(1,
+BluefinPayconexSDK* client = bluefinpayconex_sdk_new(cmap(1,
     "apikey", v_str(getenv("BLUEFIN_PAYCONEX_APIKEY"))));
 PNError* err = NULL;
 ```
@@ -54,7 +54,7 @@ AccountUpdaterSubscriptionWithResult is nested under account, so provide the `ac
 `load()` returns the bare record and sets `*err` on failure.
 
 ```c
-Entity* account_updater_subscription_with_result = bluefin_payconex_account_updater_subscription_with_result(client, NULL);
+Entity* account_updater_subscription_with_result = bluefinpayconex_account_updater_subscription_with_result(client, NULL);
 voxgig_value* account_updater_subscription_with_result_rec = account_updater_subscription_with_result->vt->load(account_updater_subscription_with_result, cmap(2, "account_id", v_str("example_account_id"), "subscription_id", v_str("example_subscription_id")), NULL, &err);
 if (err) {
     fprintf(stderr, "load failed: %s\n", err->msg);
@@ -66,7 +66,7 @@ if (err) {
 ### 4. Create, update, and remove
 
 ```c
-Entity* account_updater = bluefin_payconex_account_updater(client, NULL);
+Entity* account_updater = bluefinpayconex_account_updater(client, NULL);
 // Remove
 account_updater->vt->remove(account_updater, cmap(2, "account_id", v_str("example_account_id"), "subscription_id", v_str("example_subscription_id")), NULL, &err);
 ```
@@ -150,7 +150,7 @@ BluefinPayconexSDK* client = test_sdk(NULL, NULL);
 PNError* err = NULL;
 
 // Entity ops return the bare record and set *err on failure.
-Entity* three_d_secure_status = bluefin_payconex_three_d_secure_status(client, NULL);
+Entity* three_d_secure_status = bluefinpayconex_three_d_secure_status(client, NULL);
 voxgig_value* three_d_secure_status_rec = three_d_secure_status->vt->load(three_d_secure_status, NULL, NULL, &err);
 // three_d_secure_status_rec contains the mock response record
 ```
@@ -170,7 +170,7 @@ static voxgig_value* mock_fetch(void* ud, voxgig_value* args) {
         "json", json_thunk(cmap(1, "id", v_str("mock01"))));
 }
 
-BluefinPayconexSDK* client = bluefin_payconex_sdk_new(cmap(2,
+BluefinPayconexSDK* client = bluefinpayconex_sdk_new(cmap(2,
     "base", v_str("http://localhost:8080"),
     "system", cmap(1, "fetch", vfn(mock_fetch, NULL))));
 ```
@@ -180,7 +180,7 @@ BluefinPayconexSDK* client = bluefin_payconex_sdk_new(cmap(2,
 Override the base URL to reach a local or staging server:
 
 ```c
-BluefinPayconexSDK* client = bluefin_payconex_sdk_new(cmap(1,
+BluefinPayconexSDK* client = bluefinpayconex_sdk_new(cmap(1,
     "base", v_str("http://localhost:8080")));
 ```
 
@@ -207,7 +207,7 @@ cd c && make test
 ```c
 #include "core/api.h"
 
-BluefinPayconexSDK* client = bluefin_payconex_sdk_new(options);
+BluefinPayconexSDK* client = bluefinpayconex_sdk_new(options);
 ```
 
 Creates a new SDK client. `options` is a `voxgig_value*` map (`NULL` for
@@ -237,26 +237,26 @@ Creates a test-mode client with mock transport. Both arguments may be
 | --- | --- | --- |
 | `sdk_prepare` | `(BluefinPayconexSDK*, fetchargs, PNError**) -> voxgig_value*` | Build an HTTP request definition without sending. |
 | `sdk_direct` | `(BluefinPayconexSDK*, fetchargs, PNError**) -> voxgig_value*` | Build and send an HTTP request. Returns a result map (branch on `ok`). |
-| `bluefin_payconex_account_updater` | `(BluefinPayconexSDK*, entopts) -> Entity*` | Create an AccountUpdater entity instance. |
-| `bluefin_payconex_account_updater_schedule` | `(BluefinPayconexSDK*, entopts) -> Entity*` | Create an AccountUpdaterSchedule entity instance. |
-| `bluefin_payconex_account_updater_schedule_with_result` | `(BluefinPayconexSDK*, entopts) -> Entity*` | Create an AccountUpdaterScheduleWithResult entity instance. |
-| `bluefin_payconex_account_updater_subscription_with_result` | `(BluefinPayconexSDK*, entopts) -> Entity*` | Create an AccountUpdaterSubscriptionWithResult entity instance. |
-| `bluefin_payconex_account_updater_update` | `(BluefinPayconexSDK*, entopts) -> Entity*` | Create an AccountUpdaterUpdate entity instance. |
-| `bluefin_payconex_api_key` | `(BluefinPayconexSDK*, entopts) -> Entity*` | Create an ApiKey entity instance. |
-| `bluefin_payconex_apple_pay_merchant_detail` | `(BluefinPayconexSDK*, entopts) -> Entity*` | Create an ApplePayMerchantDetail entity instance. |
-| `bluefin_payconex_apple_pay_session` | `(BluefinPayconexSDK*, entopts) -> Entity*` | Create an ApplePaySession entity instance. |
-| `bluefin_payconex_dynamic_descriptor` | `(BluefinPayconexSDK*, entopts) -> Entity*` | Create a DynamicDescriptor entity instance. |
-| `bluefin_payconex_i_frame_create_instance` | `(BluefinPayconexSDK*, entopts) -> Entity*` | Create an IFrameCreateInstance entity instance. |
-| `bluefin_payconex_i_frame_instance` | `(BluefinPayconexSDK*, entopts) -> Entity*` | Create an IFrameInstance entity instance. |
-| `bluefin_payconex_iframe` | `(BluefinPayconexSDK*, entopts) -> Entity*` | Create an Iframe entity instance. |
-| `bluefin_payconex_init` | `(BluefinPayconexSDK*, entopts) -> Entity*` | Create an Init entity instance. |
-| `bluefin_payconex_list_api_key_scopes_entry` | `(BluefinPayconexSDK*, entopts) -> Entity*` | Create a ListApiKeyScopesEntry entity instance. |
-| `bluefin_payconex_payment_iframe` | `(BluefinPayconexSDK*, entopts) -> Entity*` | Create a PaymentIframe entity instance. |
-| `bluefin_payconex_three_d_secure_auth` | `(BluefinPayconexSDK*, entopts) -> Entity*` | Create a ThreeDSecureAuth entity instance. |
-| `bluefin_payconex_three_d_secure_browser_init` | `(BluefinPayconexSDK*, entopts) -> Entity*` | Create a ThreeDSecureBrowserInit entity instance. |
-| `bluefin_payconex_three_d_secure_status` | `(BluefinPayconexSDK*, entopts) -> Entity*` | Create a ThreeDSecureStatus entity instance. |
-| `bluefin_payconex_transaction_detail` | `(BluefinPayconexSDK*, entopts) -> Entity*` | Create a TransactionDetail entity instance. |
-| `bluefin_payconex_webhook` | `(BluefinPayconexSDK*, entopts) -> Entity*` | Create a Webhook entity instance. |
+| `bluefinpayconex_account_updater` | `(BluefinPayconexSDK*, entopts) -> Entity*` | Create an AccountUpdater entity instance. |
+| `bluefinpayconex_account_updater_schedule` | `(BluefinPayconexSDK*, entopts) -> Entity*` | Create an AccountUpdaterSchedule entity instance. |
+| `bluefinpayconex_account_updater_schedule_with_result` | `(BluefinPayconexSDK*, entopts) -> Entity*` | Create an AccountUpdaterScheduleWithResult entity instance. |
+| `bluefinpayconex_account_updater_subscription_with_result` | `(BluefinPayconexSDK*, entopts) -> Entity*` | Create an AccountUpdaterSubscriptionWithResult entity instance. |
+| `bluefinpayconex_account_updater_update` | `(BluefinPayconexSDK*, entopts) -> Entity*` | Create an AccountUpdaterUpdate entity instance. |
+| `bluefinpayconex_api_key` | `(BluefinPayconexSDK*, entopts) -> Entity*` | Create an ApiKey entity instance. |
+| `bluefinpayconex_apple_pay_merchant_detail` | `(BluefinPayconexSDK*, entopts) -> Entity*` | Create an ApplePayMerchantDetail entity instance. |
+| `bluefinpayconex_apple_pay_session` | `(BluefinPayconexSDK*, entopts) -> Entity*` | Create an ApplePaySession entity instance. |
+| `bluefinpayconex_dynamic_descriptor` | `(BluefinPayconexSDK*, entopts) -> Entity*` | Create a DynamicDescriptor entity instance. |
+| `bluefinpayconex_i_frame_create_instance` | `(BluefinPayconexSDK*, entopts) -> Entity*` | Create an IFrameCreateInstance entity instance. |
+| `bluefinpayconex_i_frame_instance` | `(BluefinPayconexSDK*, entopts) -> Entity*` | Create an IFrameInstance entity instance. |
+| `bluefinpayconex_iframe` | `(BluefinPayconexSDK*, entopts) -> Entity*` | Create an Iframe entity instance. |
+| `bluefinpayconex_init` | `(BluefinPayconexSDK*, entopts) -> Entity*` | Create an Init entity instance. |
+| `bluefinpayconex_list_api_key_scopes_entry` | `(BluefinPayconexSDK*, entopts) -> Entity*` | Create a ListApiKeyScopesEntry entity instance. |
+| `bluefinpayconex_payment_iframe` | `(BluefinPayconexSDK*, entopts) -> Entity*` | Create a PaymentIframe entity instance. |
+| `bluefinpayconex_three_d_secure_auth` | `(BluefinPayconexSDK*, entopts) -> Entity*` | Create a ThreeDSecureAuth entity instance. |
+| `bluefinpayconex_three_d_secure_browser_init` | `(BluefinPayconexSDK*, entopts) -> Entity*` | Create a ThreeDSecureBrowserInit entity instance. |
+| `bluefinpayconex_three_d_secure_status` | `(BluefinPayconexSDK*, entopts) -> Entity*` | Create a ThreeDSecureStatus entity instance. |
+| `bluefinpayconex_transaction_detail` | `(BluefinPayconexSDK*, entopts) -> Entity*` | Create a TransactionDetail entity instance. |
+| `bluefinpayconex_webhook` | `(BluefinPayconexSDK*, entopts) -> Entity*` | Create a Webhook entity instance. |
 
 ### Entity interface (vtable)
 
@@ -623,7 +623,7 @@ API path: `/api/v4/accounts/{accountId}/webhooks`
 
 ### AccountUpdater
 
-Create an instance: `Entity* account_updater = bluefin_payconex_account_updater(client, NULL);`
+Create an instance: `Entity* account_updater = bluefinpayconex_account_updater(client, NULL);`
 
 #### Operations
 
@@ -634,7 +634,7 @@ Create an instance: `Entity* account_updater = bluefin_payconex_account_updater(
 
 ### AccountUpdaterSchedule
 
-Create an instance: `Entity* account_updater_schedule = bluefin_payconex_account_updater_schedule(client, NULL);`
+Create an instance: `Entity* account_updater_schedule = bluefinpayconex_account_updater_schedule(client, NULL);`
 
 #### Operations
 
@@ -655,7 +655,7 @@ Create an instance: `Entity* account_updater_schedule = bluefin_payconex_account
 #### Example: Create
 
 ```c
-Entity* account_updater_schedule = bluefin_payconex_account_updater_schedule(client, NULL);
+Entity* account_updater_schedule = bluefinpayconex_account_updater_schedule(client, NULL);
 voxgig_value* account_updater_schedule_rec = account_updater_schedule->vt->create(account_updater_schedule, cmap(1,
     "account_id", v_str("example_account_id"))  // char*
 , NULL, &err);
@@ -664,7 +664,7 @@ voxgig_value* account_updater_schedule_rec = account_updater_schedule->vt->creat
 
 ### AccountUpdaterScheduleWithResult
 
-Create an instance: `Entity* account_updater_schedule_with_result = bluefin_payconex_account_updater_schedule_with_result(client, NULL);`
+Create an instance: `Entity* account_updater_schedule_with_result = bluefinpayconex_account_updater_schedule_with_result(client, NULL);`
 
 #### Operations
 
@@ -693,14 +693,14 @@ Create an instance: `Entity* account_updater_schedule_with_result = bluefin_payc
 #### Example: List
 
 ```c
-Entity* account_updater_schedule_with_result = bluefin_payconex_account_updater_schedule_with_result(client, NULL);
+Entity* account_updater_schedule_with_result = bluefinpayconex_account_updater_schedule_with_result(client, NULL);
 voxgig_value* account_updater_schedule_with_results = account_updater_schedule_with_result->vt->list(account_updater_schedule_with_result, NULL, NULL, &err);
 ```
 
 #### Example: Create
 
 ```c
-Entity* account_updater_schedule_with_result = bluefin_payconex_account_updater_schedule_with_result(client, NULL);
+Entity* account_updater_schedule_with_result = bluefinpayconex_account_updater_schedule_with_result(client, NULL);
 voxgig_value* account_updater_schedule_with_result_rec = account_updater_schedule_with_result->vt->create(account_updater_schedule_with_result, cmap(1,
     "account_id", v_str("example_account_id"))  // char*
 , NULL, &err);
@@ -709,7 +709,7 @@ voxgig_value* account_updater_schedule_with_result_rec = account_updater_schedul
 
 ### AccountUpdaterSubscriptionWithResult
 
-Create an instance: `Entity* account_updater_subscription_with_result = bluefin_payconex_account_updater_subscription_with_result(client, NULL);`
+Create an instance: `Entity* account_updater_subscription_with_result = bluefinpayconex_account_updater_subscription_with_result(client, NULL);`
 
 #### Operations
 
@@ -736,14 +736,14 @@ Create an instance: `Entity* account_updater_subscription_with_result = bluefin_
 #### Example: Load
 
 ```c
-Entity* account_updater_subscription_with_result = bluefin_payconex_account_updater_subscription_with_result(client, NULL);
+Entity* account_updater_subscription_with_result = bluefinpayconex_account_updater_subscription_with_result(client, NULL);
 voxgig_value* account_updater_subscription_with_result_rec = account_updater_subscription_with_result->vt->load(account_updater_subscription_with_result, cmap(2, "account_id", v_str("account_id"), "subscription_id", v_str("subscription_id")), NULL, &err);
 ```
 
 #### Example: Create
 
 ```c
-Entity* account_updater_subscription_with_result = bluefin_payconex_account_updater_subscription_with_result(client, NULL);
+Entity* account_updater_subscription_with_result = bluefinpayconex_account_updater_subscription_with_result(client, NULL);
 voxgig_value* account_updater_subscription_with_result_rec = account_updater_subscription_with_result->vt->create(account_updater_subscription_with_result, cmap(2,
     "account_id", v_str("example_account_id"),  // char*
     "subscription_id", v_str("example_subscription_id"))  // char*
@@ -753,7 +753,7 @@ voxgig_value* account_updater_subscription_with_result_rec = account_updater_sub
 
 ### AccountUpdaterUpdate
 
-Create an instance: `Entity* account_updater_update = bluefin_payconex_account_updater_update(client, NULL);`
+Create an instance: `Entity* account_updater_update = bluefinpayconex_account_updater_update(client, NULL);`
 
 #### Operations
 
@@ -780,14 +780,14 @@ Create an instance: `Entity* account_updater_update = bluefin_payconex_account_u
 #### Example: Load
 
 ```c
-Entity* account_updater_update = bluefin_payconex_account_updater_update(client, NULL);
+Entity* account_updater_update = bluefinpayconex_account_updater_update(client, NULL);
 voxgig_value* account_updater_update_rec = account_updater_update->vt->load(account_updater_update, cmap(2, "id", v_str("account_updater_update_id"), "account_id", v_str("account_id")), NULL, &err);
 ```
 
 
 ### ApiKey
 
-Create an instance: `Entity* api_key = bluefin_payconex_api_key(client, NULL);`
+Create an instance: `Entity* api_key = bluefinpayconex_api_key(client, NULL);`
 
 #### Operations
 
@@ -816,21 +816,21 @@ Create an instance: `Entity* api_key = bluefin_payconex_api_key(client, NULL);`
 #### Example: Load
 
 ```c
-Entity* api_key = bluefin_payconex_api_key(client, NULL);
+Entity* api_key = bluefinpayconex_api_key(client, NULL);
 voxgig_value* api_key_rec = api_key->vt->load(api_key, cmap(2, "id", v_str("api_key_id"), "account_id", v_str("account_id")), NULL, &err);
 ```
 
 #### Example: List
 
 ```c
-Entity* api_key = bluefin_payconex_api_key(client, NULL);
+Entity* api_key = bluefinpayconex_api_key(client, NULL);
 voxgig_value* api_keys = api_key->vt->list(api_key, NULL, NULL, &err);
 ```
 
 #### Example: Create
 
 ```c
-Entity* api_key = bluefin_payconex_api_key(client, NULL);
+Entity* api_key = bluefinpayconex_api_key(client, NULL);
 voxgig_value* api_key_rec = api_key->vt->create(api_key, cmap(1,
     "account_id", v_str("example_account_id"))  // char*
 , NULL, &err);
@@ -839,7 +839,7 @@ voxgig_value* api_key_rec = api_key->vt->create(api_key, cmap(1,
 
 ### ApplePayMerchantDetail
 
-Create an instance: `Entity* apple_pay_merchant_detail = bluefin_payconex_apple_pay_merchant_detail(client, NULL);`
+Create an instance: `Entity* apple_pay_merchant_detail = bluefinpayconex_apple_pay_merchant_detail(client, NULL);`
 
 #### Operations
 
@@ -860,14 +860,14 @@ Create an instance: `Entity* apple_pay_merchant_detail = bluefin_payconex_apple_
 #### Example: List
 
 ```c
-Entity* apple_pay_merchant_detail = bluefin_payconex_apple_pay_merchant_detail(client, NULL);
+Entity* apple_pay_merchant_detail = bluefinpayconex_apple_pay_merchant_detail(client, NULL);
 voxgig_value* apple_pay_merchant_details = apple_pay_merchant_detail->vt->list(apple_pay_merchant_detail, NULL, NULL, &err);
 ```
 
 #### Example: Create
 
 ```c
-Entity* apple_pay_merchant_detail = bluefin_payconex_apple_pay_merchant_detail(client, NULL);
+Entity* apple_pay_merchant_detail = bluefinpayconex_apple_pay_merchant_detail(client, NULL);
 voxgig_value* apple_pay_merchant_detail_rec = apple_pay_merchant_detail->vt->create(apple_pay_merchant_detail, cmap(1,
     "account_id", v_num(1))  // int64_t
 , NULL, &err);
@@ -876,7 +876,7 @@ voxgig_value* apple_pay_merchant_detail_rec = apple_pay_merchant_detail->vt->cre
 
 ### ApplePaySession
 
-Create an instance: `Entity* apple_pay_session = bluefin_payconex_apple_pay_session(client, NULL);`
+Create an instance: `Entity* apple_pay_session = bluefinpayconex_apple_pay_session(client, NULL);`
 
 #### Operations
 
@@ -903,7 +903,7 @@ Create an instance: `Entity* apple_pay_session = bluefin_payconex_apple_pay_sess
 #### Example: Create
 
 ```c
-Entity* apple_pay_session = bluefin_payconex_apple_pay_session(client, NULL);
+Entity* apple_pay_session = bluefinpayconex_apple_pay_session(client, NULL);
 voxgig_value* apple_pay_session_rec = apple_pay_session->vt->create(apple_pay_session, cmap(1,
     "account_id", v_num(1))  // int64_t
 , NULL, &err);
@@ -912,7 +912,7 @@ voxgig_value* apple_pay_session_rec = apple_pay_session->vt->create(apple_pay_se
 
 ### DynamicDescriptor
 
-Create an instance: `Entity* dynamic_descriptor = bluefin_payconex_dynamic_descriptor(client, NULL);`
+Create an instance: `Entity* dynamic_descriptor = bluefinpayconex_dynamic_descriptor(client, NULL);`
 
 #### Operations
 
@@ -937,21 +937,21 @@ Create an instance: `Entity* dynamic_descriptor = bluefin_payconex_dynamic_descr
 #### Example: Load
 
 ```c
-Entity* dynamic_descriptor = bluefin_payconex_dynamic_descriptor(client, NULL);
+Entity* dynamic_descriptor = bluefinpayconex_dynamic_descriptor(client, NULL);
 voxgig_value* dynamic_descriptor_rec = dynamic_descriptor->vt->load(dynamic_descriptor, cmap(2, "id", v_str("dynamic_descriptor_id"), "account_id", v_str("account_id")), NULL, &err);
 ```
 
 #### Example: List
 
 ```c
-Entity* dynamic_descriptor = bluefin_payconex_dynamic_descriptor(client, NULL);
+Entity* dynamic_descriptor = bluefinpayconex_dynamic_descriptor(client, NULL);
 voxgig_value* dynamic_descriptors = dynamic_descriptor->vt->list(dynamic_descriptor, NULL, NULL, &err);
 ```
 
 #### Example: Create
 
 ```c
-Entity* dynamic_descriptor = bluefin_payconex_dynamic_descriptor(client, NULL);
+Entity* dynamic_descriptor = bluefinpayconex_dynamic_descriptor(client, NULL);
 voxgig_value* dynamic_descriptor_rec = dynamic_descriptor->vt->create(dynamic_descriptor, cmap(1,
     "account_id", v_str("example_account_id"))  // char*
 , NULL, &err);
@@ -960,7 +960,7 @@ voxgig_value* dynamic_descriptor_rec = dynamic_descriptor->vt->create(dynamic_de
 
 ### IFrameCreateInstance
 
-Create an instance: `Entity* i_frame_create_instance = bluefin_payconex_i_frame_create_instance(client, NULL);`
+Create an instance: `Entity* i_frame_create_instance = bluefinpayconex_i_frame_create_instance(client, NULL);`
 
 #### Operations
 
@@ -985,7 +985,7 @@ Create an instance: `Entity* i_frame_create_instance = bluefin_payconex_i_frame_
 #### Example: Create
 
 ```c
-Entity* i_frame_create_instance = bluefin_payconex_i_frame_create_instance(client, NULL);
+Entity* i_frame_create_instance = bluefinpayconex_i_frame_create_instance(client, NULL);
 voxgig_value* i_frame_create_instance_rec = i_frame_create_instance->vt->create(i_frame_create_instance, cmap(2,
     "account_id", v_str("example_account_id"),  // char*
     "payment_iframe_id", v_str("example_payment_iframe_id"))  // char*
@@ -995,7 +995,7 @@ voxgig_value* i_frame_create_instance_rec = i_frame_create_instance->vt->create(
 
 ### IFrameInstance
 
-Create an instance: `Entity* i_frame_instance = bluefin_payconex_i_frame_instance(client, NULL);`
+Create an instance: `Entity* i_frame_instance = bluefinpayconex_i_frame_instance(client, NULL);`
 
 #### Operations
 
@@ -1006,14 +1006,14 @@ Create an instance: `Entity* i_frame_instance = bluefin_payconex_i_frame_instanc
 #### Example: Load
 
 ```c
-Entity* i_frame_instance = bluefin_payconex_i_frame_instance(client, NULL);
+Entity* i_frame_instance = bluefinpayconex_i_frame_instance(client, NULL);
 voxgig_value* i_frame_instance_rec = i_frame_instance->vt->load(i_frame_instance, cmap(3, "id", v_str("i_frame_instance_id"), "account_id", v_str("account_id"), "payment_iframe_id", v_str("payment_iframe_id")), NULL, &err);
 ```
 
 
 ### Iframe
 
-Create an instance: `Entity* iframe = bluefin_payconex_iframe(client, NULL);`
+Create an instance: `Entity* iframe = bluefinpayconex_iframe(client, NULL);`
 
 #### Operations
 
@@ -1042,21 +1042,21 @@ Create an instance: `Entity* iframe = bluefin_payconex_iframe(client, NULL);`
 #### Example: Load
 
 ```c
-Entity* iframe = bluefin_payconex_iframe(client, NULL);
+Entity* iframe = bluefinpayconex_iframe(client, NULL);
 voxgig_value* iframe_rec = iframe->vt->load(iframe, cmap(2, "account_id", v_str("account_id"), "iframe_id", v_str("iframe_id")), NULL, &err);
 ```
 
 #### Example: List
 
 ```c
-Entity* iframe = bluefin_payconex_iframe(client, NULL);
+Entity* iframe = bluefinpayconex_iframe(client, NULL);
 voxgig_value* iframes = iframe->vt->list(iframe, NULL, NULL, &err);
 ```
 
 #### Example: Create
 
 ```c
-Entity* iframe = bluefin_payconex_iframe(client, NULL);
+Entity* iframe = bluefinpayconex_iframe(client, NULL);
 voxgig_value* iframe_rec = iframe->vt->create(iframe, cmap(1,
     "account_id", v_str("example_account_id"))  // char*
 , NULL, &err);
@@ -1065,7 +1065,7 @@ voxgig_value* iframe_rec = iframe->vt->create(iframe, cmap(1,
 
 ### Init
 
-Create an instance: `Entity* init = bluefin_payconex_init(client, NULL);`
+Create an instance: `Entity* init = bluefinpayconex_init(client, NULL);`
 
 #### Operations
 
@@ -1088,7 +1088,7 @@ Create an instance: `Entity* init = bluefin_payconex_init(client, NULL);`
 #### Example: Create
 
 ```c
-Entity* init = bluefin_payconex_init(client, NULL);
+Entity* init = bluefinpayconex_init(client, NULL);
 voxgig_value* init_rec = init->vt->create(init, cmap(1,
     "account_id", v_str("example_account_id"))  // char*
 , NULL, &err);
@@ -1097,7 +1097,7 @@ voxgig_value* init_rec = init->vt->create(init, cmap(1,
 
 ### ListApiKeyScopesEntry
 
-Create an instance: `Entity* list_api_key_scopes_entry = bluefin_payconex_list_api_key_scopes_entry(client, NULL);`
+Create an instance: `Entity* list_api_key_scopes_entry = bluefinpayconex_list_api_key_scopes_entry(client, NULL);`
 
 #### Operations
 
@@ -1118,14 +1118,14 @@ Create an instance: `Entity* list_api_key_scopes_entry = bluefin_payconex_list_a
 #### Example: List
 
 ```c
-Entity* list_api_key_scopes_entry = bluefin_payconex_list_api_key_scopes_entry(client, NULL);
+Entity* list_api_key_scopes_entry = bluefinpayconex_list_api_key_scopes_entry(client, NULL);
 voxgig_value* list_api_key_scopes_entrys = list_api_key_scopes_entry->vt->list(list_api_key_scopes_entry, NULL, NULL, &err);
 ```
 
 
 ### PaymentIframe
 
-Create an instance: `Entity* payment_iframe = bluefin_payconex_payment_iframe(client, NULL);`
+Create an instance: `Entity* payment_iframe = bluefinpayconex_payment_iframe(client, NULL);`
 
 #### Operations
 
@@ -1136,7 +1136,7 @@ Create an instance: `Entity* payment_iframe = bluefin_payconex_payment_iframe(cl
 
 ### ThreeDSecureAuth
 
-Create an instance: `Entity* three_d_secure_auth = bluefin_payconex_three_d_secure_auth(client, NULL);`
+Create an instance: `Entity* three_d_secure_auth = bluefinpayconex_three_d_secure_auth(client, NULL);`
 
 #### Operations
 
@@ -1163,7 +1163,7 @@ Create an instance: `Entity* three_d_secure_auth = bluefin_payconex_three_d_secu
 #### Example: Create
 
 ```c
-Entity* three_d_secure_auth = bluefin_payconex_three_d_secure_auth(client, NULL);
+Entity* three_d_secure_auth = bluefinpayconex_three_d_secure_auth(client, NULL);
 voxgig_value* three_d_secure_auth_rec = three_d_secure_auth->vt->create(three_d_secure_auth, cmap(2,
     "3_d_id", v_str("example_3_d_id"),  // char*
     "account_id", v_str("example_account_id"))  // char*
@@ -1173,7 +1173,7 @@ voxgig_value* three_d_secure_auth_rec = three_d_secure_auth->vt->create(three_d_
 
 ### ThreeDSecureBrowserInit
 
-Create an instance: `Entity* three_d_secure_browser_init = bluefin_payconex_three_d_secure_browser_init(client, NULL);`
+Create an instance: `Entity* three_d_secure_browser_init = bluefinpayconex_three_d_secure_browser_init(client, NULL);`
 
 #### Operations
 
@@ -1199,7 +1199,7 @@ Create an instance: `Entity* three_d_secure_browser_init = bluefin_payconex_thre
 #### Example: Create
 
 ```c
-Entity* three_d_secure_browser_init = bluefin_payconex_three_d_secure_browser_init(client, NULL);
+Entity* three_d_secure_browser_init = bluefinpayconex_three_d_secure_browser_init(client, NULL);
 voxgig_value* three_d_secure_browser_init_rec = three_d_secure_browser_init->vt->create(three_d_secure_browser_init, cmap(1,
     "account_id", v_str("example_account_id"))  // char*
 , NULL, &err);
@@ -1208,7 +1208,7 @@ voxgig_value* three_d_secure_browser_init_rec = three_d_secure_browser_init->vt-
 
 ### ThreeDSecureStatus
 
-Create an instance: `Entity* three_d_secure_status = bluefin_payconex_three_d_secure_status(client, NULL);`
+Create an instance: `Entity* three_d_secure_status = bluefinpayconex_three_d_secure_status(client, NULL);`
 
 #### Operations
 
@@ -1230,14 +1230,14 @@ Create an instance: `Entity* three_d_secure_status = bluefin_payconex_three_d_se
 #### Example: Load
 
 ```c
-Entity* three_d_secure_status = bluefin_payconex_three_d_secure_status(client, NULL);
+Entity* three_d_secure_status = bluefinpayconex_three_d_secure_status(client, NULL);
 voxgig_value* three_d_secure_status_rec = three_d_secure_status->vt->load(three_d_secure_status, cmap(2, "3_d_id", v_str("3_d_id"), "account_id", v_str("account_id")), NULL, &err);
 ```
 
 
 ### TransactionDetail
 
-Create an instance: `Entity* transaction_detail = bluefin_payconex_transaction_detail(client, NULL);`
+Create an instance: `Entity* transaction_detail = bluefinpayconex_transaction_detail(client, NULL);`
 
 #### Operations
 
@@ -1268,14 +1268,14 @@ Create an instance: `Entity* transaction_detail = bluefin_payconex_transaction_d
 #### Example: Load
 
 ```c
-Entity* transaction_detail = bluefin_payconex_transaction_detail(client, NULL);
+Entity* transaction_detail = bluefinpayconex_transaction_detail(client, NULL);
 voxgig_value* transaction_detail_rec = transaction_detail->vt->load(transaction_detail, cmap(2, "account_id", v_str("account_id"), "transaction_id", v_str("transaction_id")), NULL, &err);
 ```
 
 
 ### Webhook
 
-Create an instance: `Entity* webhook = bluefin_payconex_webhook(client, NULL);`
+Create an instance: `Entity* webhook = bluefinpayconex_webhook(client, NULL);`
 
 #### Operations
 
@@ -1298,21 +1298,21 @@ Create an instance: `Entity* webhook = bluefin_payconex_webhook(client, NULL);`
 #### Example: Load
 
 ```c
-Entity* webhook = bluefin_payconex_webhook(client, NULL);
+Entity* webhook = bluefinpayconex_webhook(client, NULL);
 voxgig_value* webhook_rec = webhook->vt->load(webhook, cmap(2, "id", v_str("webhook_id"), "account_id", v_str("account_id")), NULL, &err);
 ```
 
 #### Example: List
 
 ```c
-Entity* webhook = bluefin_payconex_webhook(client, NULL);
+Entity* webhook = bluefinpayconex_webhook(client, NULL);
 voxgig_value* webhooks = webhook->vt->list(webhook, NULL, NULL, &err);
 ```
 
 #### Example: Create
 
 ```c
-Entity* webhook = bluefin_payconex_webhook(client, NULL);
+Entity* webhook = bluefinpayconex_webhook(client, NULL);
 voxgig_value* webhook_rec = webhook->vt->create(webhook, cmap(1,
     "account_id", v_str("example_account_id"))  // char*
 , NULL, &err);

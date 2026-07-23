@@ -204,102 +204,102 @@ voxgig_value* sdk_direct(BluefinPayconexSDK* sdk, voxgig_value* fetchargs, PNErr
 
 
 // AccountUpdater entity bound to this client.
-Entity* bluefin_payconex_account_updater(BluefinPayconexSDK* client, voxgig_value* entopts) {
+Entity* bluefinpayconex_account_updater(BluefinPayconexSDK* client, voxgig_value* entopts) {
   return account_updater_entity_new(client, entopts);
 }
 
 // AccountUpdaterSchedule entity bound to this client.
-Entity* bluefin_payconex_account_updater_schedule(BluefinPayconexSDK* client, voxgig_value* entopts) {
+Entity* bluefinpayconex_account_updater_schedule(BluefinPayconexSDK* client, voxgig_value* entopts) {
   return account_updater_schedule_entity_new(client, entopts);
 }
 
 // AccountUpdaterScheduleWithResult entity bound to this client.
-Entity* bluefin_payconex_account_updater_schedule_with_result(BluefinPayconexSDK* client, voxgig_value* entopts) {
+Entity* bluefinpayconex_account_updater_schedule_with_result(BluefinPayconexSDK* client, voxgig_value* entopts) {
   return account_updater_schedule_with_result_entity_new(client, entopts);
 }
 
 // AccountUpdaterSubscriptionWithResult entity bound to this client.
-Entity* bluefin_payconex_account_updater_subscription_with_result(BluefinPayconexSDK* client, voxgig_value* entopts) {
+Entity* bluefinpayconex_account_updater_subscription_with_result(BluefinPayconexSDK* client, voxgig_value* entopts) {
   return account_updater_subscription_with_result_entity_new(client, entopts);
 }
 
 // AccountUpdaterUpdate entity bound to this client.
-Entity* bluefin_payconex_account_updater_update(BluefinPayconexSDK* client, voxgig_value* entopts) {
+Entity* bluefinpayconex_account_updater_update(BluefinPayconexSDK* client, voxgig_value* entopts) {
   return account_updater_update_entity_new(client, entopts);
 }
 
 // ApiKey entity bound to this client.
-Entity* bluefin_payconex_api_key(BluefinPayconexSDK* client, voxgig_value* entopts) {
+Entity* bluefinpayconex_api_key(BluefinPayconexSDK* client, voxgig_value* entopts) {
   return api_key_entity_new(client, entopts);
 }
 
 // ApplePayMerchantDetail entity bound to this client.
-Entity* bluefin_payconex_apple_pay_merchant_detail(BluefinPayconexSDK* client, voxgig_value* entopts) {
+Entity* bluefinpayconex_apple_pay_merchant_detail(BluefinPayconexSDK* client, voxgig_value* entopts) {
   return apple_pay_merchant_detail_entity_new(client, entopts);
 }
 
 // ApplePaySession entity bound to this client.
-Entity* bluefin_payconex_apple_pay_session(BluefinPayconexSDK* client, voxgig_value* entopts) {
+Entity* bluefinpayconex_apple_pay_session(BluefinPayconexSDK* client, voxgig_value* entopts) {
   return apple_pay_session_entity_new(client, entopts);
 }
 
 // DynamicDescriptor entity bound to this client.
-Entity* bluefin_payconex_dynamic_descriptor(BluefinPayconexSDK* client, voxgig_value* entopts) {
+Entity* bluefinpayconex_dynamic_descriptor(BluefinPayconexSDK* client, voxgig_value* entopts) {
   return dynamic_descriptor_entity_new(client, entopts);
 }
 
 // IFrameCreateInstance entity bound to this client.
-Entity* bluefin_payconex_i_frame_create_instance(BluefinPayconexSDK* client, voxgig_value* entopts) {
+Entity* bluefinpayconex_i_frame_create_instance(BluefinPayconexSDK* client, voxgig_value* entopts) {
   return i_frame_create_instance_entity_new(client, entopts);
 }
 
 // IFrameInstance entity bound to this client.
-Entity* bluefin_payconex_i_frame_instance(BluefinPayconexSDK* client, voxgig_value* entopts) {
+Entity* bluefinpayconex_i_frame_instance(BluefinPayconexSDK* client, voxgig_value* entopts) {
   return i_frame_instance_entity_new(client, entopts);
 }
 
 // Iframe entity bound to this client.
-Entity* bluefin_payconex_iframe(BluefinPayconexSDK* client, voxgig_value* entopts) {
+Entity* bluefinpayconex_iframe(BluefinPayconexSDK* client, voxgig_value* entopts) {
   return iframe_entity_new(client, entopts);
 }
 
 // Init entity bound to this client.
-Entity* bluefin_payconex_init(BluefinPayconexSDK* client, voxgig_value* entopts) {
+Entity* bluefinpayconex_init(BluefinPayconexSDK* client, voxgig_value* entopts) {
   return init_entity_new(client, entopts);
 }
 
 // ListApiKeyScopesEntry entity bound to this client.
-Entity* bluefin_payconex_list_api_key_scopes_entry(BluefinPayconexSDK* client, voxgig_value* entopts) {
+Entity* bluefinpayconex_list_api_key_scopes_entry(BluefinPayconexSDK* client, voxgig_value* entopts) {
   return list_api_key_scopes_entry_entity_new(client, entopts);
 }
 
 // PaymentIframe entity bound to this client.
-Entity* bluefin_payconex_payment_iframe(BluefinPayconexSDK* client, voxgig_value* entopts) {
+Entity* bluefinpayconex_payment_iframe(BluefinPayconexSDK* client, voxgig_value* entopts) {
   return payment_iframe_entity_new(client, entopts);
 }
 
 // ThreeDSecureAuth entity bound to this client.
-Entity* bluefin_payconex_three_d_secure_auth(BluefinPayconexSDK* client, voxgig_value* entopts) {
+Entity* bluefinpayconex_three_d_secure_auth(BluefinPayconexSDK* client, voxgig_value* entopts) {
   return three_d_secure_auth_entity_new(client, entopts);
 }
 
 // ThreeDSecureBrowserInit entity bound to this client.
-Entity* bluefin_payconex_three_d_secure_browser_init(BluefinPayconexSDK* client, voxgig_value* entopts) {
+Entity* bluefinpayconex_three_d_secure_browser_init(BluefinPayconexSDK* client, voxgig_value* entopts) {
   return three_d_secure_browser_init_entity_new(client, entopts);
 }
 
 // ThreeDSecureStatus entity bound to this client.
-Entity* bluefin_payconex_three_d_secure_status(BluefinPayconexSDK* client, voxgig_value* entopts) {
+Entity* bluefinpayconex_three_d_secure_status(BluefinPayconexSDK* client, voxgig_value* entopts) {
   return three_d_secure_status_entity_new(client, entopts);
 }
 
 // TransactionDetail entity bound to this client.
-Entity* bluefin_payconex_transaction_detail(BluefinPayconexSDK* client, voxgig_value* entopts) {
+Entity* bluefinpayconex_transaction_detail(BluefinPayconexSDK* client, voxgig_value* entopts) {
   return transaction_detail_entity_new(client, entopts);
 }
 
 // Webhook entity bound to this client.
-Entity* bluefin_payconex_webhook(BluefinPayconexSDK* client, voxgig_value* entopts) {
+Entity* bluefinpayconex_webhook(BluefinPayconexSDK* client, voxgig_value* entopts) {
   return webhook_entity_new(client, entopts);
 }
 

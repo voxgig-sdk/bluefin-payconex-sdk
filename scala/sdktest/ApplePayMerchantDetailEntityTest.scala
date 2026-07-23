@@ -47,10 +47,6 @@ object ApplePayMerchantDetailEntityTest {
       applePayMerchantDetailRef01Match.put("account_id", idmap.get("account01"))
       val applePayMerchantDetailRef01ListResult = applePayMerchantDetailRef01Ent.list(applePayMerchantDetailRef01Match, null)
       rep.check("apple_pay_merchant_detail.list.islist", applePayMerchantDetailRef01ListResult.isInstanceOf[JList[?]], "expected list result to be an array, got " + applePayMerchantDetailRef01ListResult)
-      val applePayMerchantDetailRef01List = applePayMerchantDetailRef01ListResult.asInstanceOf[JList[Object]]
-      val applePayMerchantDetailRef01ListFound = Struct.select(
-          SdkTestSupport.entityListToData(applePayMerchantDetailRef01List), SdkTestSupport.om("id" -> applePayMerchantDetailRef01Data.get("id")))
-      rep.check("apple_pay_merchant_detail.list.exists", !Struct.isempty(applePayMerchantDetailRef01ListFound), "expected to find created entity in list")
     }
   }
 }

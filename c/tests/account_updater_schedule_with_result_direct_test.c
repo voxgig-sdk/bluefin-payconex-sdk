@@ -28,7 +28,7 @@ static BluefinPayconexSDK* account_updater_schedule_with_result_direct_setup(vox
   voxgig_value* opts = cmap(2,
     "base", v_str("http://localhost:8080"),
     "system", cmap(1, "fetch", vfn(account_updater_schedule_with_result_mock, mockres)));
-  return bluefin_payconex_sdk_new(opts);
+  return bluefinpayconex_sdk_new(opts);
 }
 
 int main(void) {
@@ -60,5 +60,5 @@ int main(void) {
     CHECK(strstr(LAST_URL, "direct02") != NULL, "list: url has direct02");
   }
 
-  TEST_SUMMARY("bluefin_payconex_account_updater_schedule_with_result_direct");
+  TEST_SUMMARY("bluefinpayconex_account_updater_schedule_with_result_direct");
 }

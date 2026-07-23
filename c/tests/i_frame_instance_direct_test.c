@@ -28,7 +28,7 @@ static BluefinPayconexSDK* i_frame_instance_direct_setup(voxgig_value* mockres) 
   voxgig_value* opts = cmap(2,
     "base", v_str("http://localhost:8080"),
     "system", cmap(1, "fetch", vfn(i_frame_instance_mock, mockres)));
-  return bluefin_payconex_sdk_new(opts);
+  return bluefinpayconex_sdk_new(opts);
 }
 
 int main(void) {
@@ -62,5 +62,5 @@ int main(void) {
     CHECK(strstr(LAST_URL, "direct03") != NULL, "load: url has direct03");
   }
 
-  TEST_SUMMARY("bluefin_payconex_i_frame_instance_direct");
+  TEST_SUMMARY("bluefinpayconex_i_frame_instance_direct");
 }

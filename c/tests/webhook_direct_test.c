@@ -28,7 +28,7 @@ static BluefinPayconexSDK* webhook_direct_setup(voxgig_value* mockres) {
   voxgig_value* opts = cmap(2,
     "base", v_str("http://localhost:8080"),
     "system", cmap(1, "fetch", vfn(webhook_mock, mockres)));
-  return bluefin_payconex_sdk_new(opts);
+  return bluefinpayconex_sdk_new(opts);
 }
 
 int main(void) {
@@ -85,5 +85,5 @@ int main(void) {
     CHECK(strstr(LAST_URL, "direct02") != NULL, "load: url has direct02");
   }
 
-  TEST_SUMMARY("bluefin_payconex_webhook_direct");
+  TEST_SUMMARY("bluefinpayconex_webhook_direct");
 }

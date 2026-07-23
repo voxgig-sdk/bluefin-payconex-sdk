@@ -10,7 +10,7 @@ Complete API reference for the BluefinPayconex C SDK.
 ```c
 #include "core/api.h"
 
-BluefinPayconexSDK* client = bluefin_payconex_sdk_new(options);
+BluefinPayconexSDK* client = bluefinpayconex_sdk_new(options);
 ```
 
 Create a new SDK client instance. `options` is a `voxgig_value*` map
@@ -43,102 +43,102 @@ BluefinPayconexSDK* client = test_sdk(NULL, NULL);
 
 ### Entity Accessors
 
-#### `Entity* bluefin_payconex_account_updater(BluefinPayconexSDK* client, voxgig_value* entopts)`
+#### `Entity* bluefinpayconex_account_updater(BluefinPayconexSDK* client, voxgig_value* entopts)`
 
 Create a new `AccountUpdater` entity instance. Pass `NULL` for no initial
 options.
 
-#### `Entity* bluefin_payconex_account_updater_schedule(BluefinPayconexSDK* client, voxgig_value* entopts)`
+#### `Entity* bluefinpayconex_account_updater_schedule(BluefinPayconexSDK* client, voxgig_value* entopts)`
 
 Create a new `AccountUpdaterSchedule` entity instance. Pass `NULL` for no initial
 options.
 
-#### `Entity* bluefin_payconex_account_updater_schedule_with_result(BluefinPayconexSDK* client, voxgig_value* entopts)`
+#### `Entity* bluefinpayconex_account_updater_schedule_with_result(BluefinPayconexSDK* client, voxgig_value* entopts)`
 
 Create a new `AccountUpdaterScheduleWithResult` entity instance. Pass `NULL` for no initial
 options.
 
-#### `Entity* bluefin_payconex_account_updater_subscription_with_result(BluefinPayconexSDK* client, voxgig_value* entopts)`
+#### `Entity* bluefinpayconex_account_updater_subscription_with_result(BluefinPayconexSDK* client, voxgig_value* entopts)`
 
 Create a new `AccountUpdaterSubscriptionWithResult` entity instance. Pass `NULL` for no initial
 options.
 
-#### `Entity* bluefin_payconex_account_updater_update(BluefinPayconexSDK* client, voxgig_value* entopts)`
+#### `Entity* bluefinpayconex_account_updater_update(BluefinPayconexSDK* client, voxgig_value* entopts)`
 
 Create a new `AccountUpdaterUpdate` entity instance. Pass `NULL` for no initial
 options.
 
-#### `Entity* bluefin_payconex_api_key(BluefinPayconexSDK* client, voxgig_value* entopts)`
+#### `Entity* bluefinpayconex_api_key(BluefinPayconexSDK* client, voxgig_value* entopts)`
 
 Create a new `ApiKey` entity instance. Pass `NULL` for no initial
 options.
 
-#### `Entity* bluefin_payconex_apple_pay_merchant_detail(BluefinPayconexSDK* client, voxgig_value* entopts)`
+#### `Entity* bluefinpayconex_apple_pay_merchant_detail(BluefinPayconexSDK* client, voxgig_value* entopts)`
 
 Create a new `ApplePayMerchantDetail` entity instance. Pass `NULL` for no initial
 options.
 
-#### `Entity* bluefin_payconex_apple_pay_session(BluefinPayconexSDK* client, voxgig_value* entopts)`
+#### `Entity* bluefinpayconex_apple_pay_session(BluefinPayconexSDK* client, voxgig_value* entopts)`
 
 Create a new `ApplePaySession` entity instance. Pass `NULL` for no initial
 options.
 
-#### `Entity* bluefin_payconex_dynamic_descriptor(BluefinPayconexSDK* client, voxgig_value* entopts)`
+#### `Entity* bluefinpayconex_dynamic_descriptor(BluefinPayconexSDK* client, voxgig_value* entopts)`
 
 Create a new `DynamicDescriptor` entity instance. Pass `NULL` for no initial
 options.
 
-#### `Entity* bluefin_payconex_i_frame_create_instance(BluefinPayconexSDK* client, voxgig_value* entopts)`
+#### `Entity* bluefinpayconex_i_frame_create_instance(BluefinPayconexSDK* client, voxgig_value* entopts)`
 
 Create a new `IFrameCreateInstance` entity instance. Pass `NULL` for no initial
 options.
 
-#### `Entity* bluefin_payconex_i_frame_instance(BluefinPayconexSDK* client, voxgig_value* entopts)`
+#### `Entity* bluefinpayconex_i_frame_instance(BluefinPayconexSDK* client, voxgig_value* entopts)`
 
 Create a new `IFrameInstance` entity instance. Pass `NULL` for no initial
 options.
 
-#### `Entity* bluefin_payconex_iframe(BluefinPayconexSDK* client, voxgig_value* entopts)`
+#### `Entity* bluefinpayconex_iframe(BluefinPayconexSDK* client, voxgig_value* entopts)`
 
 Create a new `Iframe` entity instance. Pass `NULL` for no initial
 options.
 
-#### `Entity* bluefin_payconex_init(BluefinPayconexSDK* client, voxgig_value* entopts)`
+#### `Entity* bluefinpayconex_init(BluefinPayconexSDK* client, voxgig_value* entopts)`
 
 Create a new `Init` entity instance. Pass `NULL` for no initial
 options.
 
-#### `Entity* bluefin_payconex_list_api_key_scopes_entry(BluefinPayconexSDK* client, voxgig_value* entopts)`
+#### `Entity* bluefinpayconex_list_api_key_scopes_entry(BluefinPayconexSDK* client, voxgig_value* entopts)`
 
 Create a new `ListApiKeyScopesEntry` entity instance. Pass `NULL` for no initial
 options.
 
-#### `Entity* bluefin_payconex_payment_iframe(BluefinPayconexSDK* client, voxgig_value* entopts)`
+#### `Entity* bluefinpayconex_payment_iframe(BluefinPayconexSDK* client, voxgig_value* entopts)`
 
 Create a new `PaymentIframe` entity instance. Pass `NULL` for no initial
 options.
 
-#### `Entity* bluefin_payconex_three_d_secure_auth(BluefinPayconexSDK* client, voxgig_value* entopts)`
+#### `Entity* bluefinpayconex_three_d_secure_auth(BluefinPayconexSDK* client, voxgig_value* entopts)`
 
 Create a new `ThreeDSecureAuth` entity instance. Pass `NULL` for no initial
 options.
 
-#### `Entity* bluefin_payconex_three_d_secure_browser_init(BluefinPayconexSDK* client, voxgig_value* entopts)`
+#### `Entity* bluefinpayconex_three_d_secure_browser_init(BluefinPayconexSDK* client, voxgig_value* entopts)`
 
 Create a new `ThreeDSecureBrowserInit` entity instance. Pass `NULL` for no initial
 options.
 
-#### `Entity* bluefin_payconex_three_d_secure_status(BluefinPayconexSDK* client, voxgig_value* entopts)`
+#### `Entity* bluefinpayconex_three_d_secure_status(BluefinPayconexSDK* client, voxgig_value* entopts)`
 
 Create a new `ThreeDSecureStatus` entity instance. Pass `NULL` for no initial
 options.
 
-#### `Entity* bluefin_payconex_transaction_detail(BluefinPayconexSDK* client, voxgig_value* entopts)`
+#### `Entity* bluefinpayconex_transaction_detail(BluefinPayconexSDK* client, voxgig_value* entopts)`
 
 Create a new `TransactionDetail` entity instance. Pass `NULL` for no initial
 options.
 
-#### `Entity* bluefin_payconex_webhook(BluefinPayconexSDK* client, voxgig_value* entopts)`
+#### `Entity* bluefinpayconex_webhook(BluefinPayconexSDK* client, voxgig_value* entopts)`
 
 Create a new `Webhook` entity instance. Pass `NULL` for no initial
 options.
@@ -172,7 +172,7 @@ Prepare a fetch definition without sending. Returns the fetchdef and sets
 ## AccountUpdater
 
 ```c
-Entity* account_updater = bluefin_payconex_account_updater(client, NULL);
+Entity* account_updater = bluefinpayconex_account_updater(client, NULL);
 ```
 
 ### Operations
@@ -182,7 +182,7 @@ Entity* account_updater = bluefin_payconex_account_updater(client, NULL);
 Remove the entity matching the given criteria. Sets `*err` on failure.
 
 ```c
-Entity* account_updater = bluefin_payconex_account_updater(client, NULL);
+Entity* account_updater = bluefinpayconex_account_updater(client, NULL);
 voxgig_value* result = account_updater->vt->remove(account_updater, cmap(2, "account_id", v_str("account_id"), "subscription_id", v_str("subscription_id")), NULL, &err);
 ```
 
@@ -210,7 +210,7 @@ Return the entity name.
 ## AccountUpdaterSchedule
 
 ```c
-Entity* account_updater_schedule = bluefin_payconex_account_updater_schedule(client, NULL);
+Entity* account_updater_schedule = bluefinpayconex_account_updater_schedule(client, NULL);
 ```
 
 ### Fields
@@ -230,7 +230,7 @@ Entity* account_updater_schedule = bluefin_payconex_account_updater_schedule(cli
 Create a new entity with the given data. Returns the created entity data and sets `*err` on failure.
 
 ```c
-Entity* account_updater_schedule = bluefin_payconex_account_updater_schedule(client, NULL);
+Entity* account_updater_schedule = bluefinpayconex_account_updater_schedule(client, NULL);
 voxgig_value* result = account_updater_schedule->vt->create(account_updater_schedule, cmap(1,
     "account_id", v_str("example_account_id"))  // char*
 , NULL, &err);
@@ -260,7 +260,7 @@ Return the entity name.
 ## AccountUpdaterScheduleWithResult
 
 ```c
-Entity* account_updater_schedule_with_result = bluefin_payconex_account_updater_schedule_with_result(client, NULL);
+Entity* account_updater_schedule_with_result = bluefinpayconex_account_updater_schedule_with_result(client, NULL);
 ```
 
 ### Fields
@@ -304,7 +304,7 @@ Entity* account_updater_schedule_with_result = bluefin_payconex_account_updater_
 Create a new entity with the given data. Returns the created entity data and sets `*err` on failure.
 
 ```c
-Entity* account_updater_schedule_with_result = bluefin_payconex_account_updater_schedule_with_result(client, NULL);
+Entity* account_updater_schedule_with_result = bluefinpayconex_account_updater_schedule_with_result(client, NULL);
 voxgig_value* result = account_updater_schedule_with_result->vt->create(account_updater_schedule_with_result, cmap(1,
     "account_id", v_str("example_account_id"))  // char*
 , NULL, &err);
@@ -315,7 +315,7 @@ voxgig_value* result = account_updater_schedule_with_result->vt->create(account_
 List entities matching the given criteria. The match is optional — pass `NULL` to list all records. Returns a List.
 
 ```c
-Entity* account_updater_schedule_with_result = bluefin_payconex_account_updater_schedule_with_result(client, NULL);
+Entity* account_updater_schedule_with_result = bluefinpayconex_account_updater_schedule_with_result(client, NULL);
 voxgig_value* results = account_updater_schedule_with_result->vt->list(account_updater_schedule_with_result, NULL, NULL, &err);
 for (size_t i = 0; i < (size_t)voxgig_size(results); i++) {
     printf("%s\n", voxgig_to_json(voxgig_getelem(results, v_int(i), NULL)));
@@ -346,7 +346,7 @@ Return the entity name.
 ## AccountUpdaterSubscriptionWithResult
 
 ```c
-Entity* account_updater_subscription_with_result = bluefin_payconex_account_updater_subscription_with_result(client, NULL);
+Entity* account_updater_subscription_with_result = bluefinpayconex_account_updater_subscription_with_result(client, NULL);
 ```
 
 ### Fields
@@ -370,7 +370,7 @@ Entity* account_updater_subscription_with_result = bluefin_payconex_account_upda
 Create a new entity with the given data. Returns the created entity data and sets `*err` on failure.
 
 ```c
-Entity* account_updater_subscription_with_result = bluefin_payconex_account_updater_subscription_with_result(client, NULL);
+Entity* account_updater_subscription_with_result = bluefinpayconex_account_updater_subscription_with_result(client, NULL);
 voxgig_value* result = account_updater_subscription_with_result->vt->create(account_updater_subscription_with_result, cmap(2,
     "account_id", v_str("example_account_id"),  // char*
     "subscription_id", v_str("example_subscription_id"))  // char*
@@ -382,7 +382,7 @@ voxgig_value* result = account_updater_subscription_with_result->vt->create(acco
 Load a single entity matching the given criteria. Returns the entity data and sets `*err` on failure.
 
 ```c
-Entity* account_updater_subscription_with_result = bluefin_payconex_account_updater_subscription_with_result(client, NULL);
+Entity* account_updater_subscription_with_result = bluefinpayconex_account_updater_subscription_with_result(client, NULL);
 voxgig_value* result = account_updater_subscription_with_result->vt->load(account_updater_subscription_with_result, cmap(2, "account_id", v_str("account_id"), "subscription_id", v_str("subscription_id")), NULL, &err);
 ```
 
@@ -391,7 +391,7 @@ voxgig_value* result = account_updater_subscription_with_result->vt->load(accoun
 Update an existing entity. The data must include the entity id. Returns the updated entity data.
 
 ```c
-Entity* account_updater_subscription_with_result = bluefin_payconex_account_updater_subscription_with_result(client, NULL);
+Entity* account_updater_subscription_with_result = bluefinpayconex_account_updater_subscription_with_result(client, NULL);
 voxgig_value* result = account_updater_subscription_with_result->vt->update(account_updater_subscription_with_result, cmap(2, "account_id", v_str("account_id"), "subscription_id", v_str("subscription_id")), NULL, &err);
 ```
 
@@ -419,7 +419,7 @@ Return the entity name.
 ## AccountUpdaterUpdate
 
 ```c
-Entity* account_updater_update = bluefin_payconex_account_updater_update(client, NULL);
+Entity* account_updater_update = bluefinpayconex_account_updater_update(client, NULL);
 ```
 
 ### Fields
@@ -445,7 +445,7 @@ Entity* account_updater_update = bluefin_payconex_account_updater_update(client,
 Load a single entity matching the given criteria. Returns the entity data and sets `*err` on failure.
 
 ```c
-Entity* account_updater_update = bluefin_payconex_account_updater_update(client, NULL);
+Entity* account_updater_update = bluefinpayconex_account_updater_update(client, NULL);
 voxgig_value* result = account_updater_update->vt->load(account_updater_update, cmap(2, "id", v_str("account_updater_update_id"), "account_id", v_str("account_id")), NULL, &err);
 ```
 
@@ -473,7 +473,7 @@ Return the entity name.
 ## ApiKey
 
 ```c
-Entity* api_key = bluefin_payconex_api_key(client, NULL);
+Entity* api_key = bluefinpayconex_api_key(client, NULL);
 ```
 
 ### Fields
@@ -511,7 +511,7 @@ Entity* api_key = bluefin_payconex_api_key(client, NULL);
 Create a new entity with the given data. Returns the created entity data and sets `*err` on failure.
 
 ```c
-Entity* api_key = bluefin_payconex_api_key(client, NULL);
+Entity* api_key = bluefinpayconex_api_key(client, NULL);
 voxgig_value* result = api_key->vt->create(api_key, cmap(1,
     "account_id", v_str("example_account_id"))  // char*
 , NULL, &err);
@@ -522,7 +522,7 @@ voxgig_value* result = api_key->vt->create(api_key, cmap(1,
 List entities matching the given criteria. The match is optional — pass `NULL` to list all records. Returns a List.
 
 ```c
-Entity* api_key = bluefin_payconex_api_key(client, NULL);
+Entity* api_key = bluefinpayconex_api_key(client, NULL);
 voxgig_value* results = api_key->vt->list(api_key, NULL, NULL, &err);
 for (size_t i = 0; i < (size_t)voxgig_size(results); i++) {
     printf("%s\n", voxgig_to_json(voxgig_getelem(results, v_int(i), NULL)));
@@ -534,7 +534,7 @@ for (size_t i = 0; i < (size_t)voxgig_size(results); i++) {
 Load a single entity matching the given criteria. Returns the entity data and sets `*err` on failure.
 
 ```c
-Entity* api_key = bluefin_payconex_api_key(client, NULL);
+Entity* api_key = bluefinpayconex_api_key(client, NULL);
 voxgig_value* result = api_key->vt->load(api_key, cmap(2, "id", v_str("api_key_id"), "account_id", v_str("account_id")), NULL, &err);
 ```
 
@@ -543,7 +543,7 @@ voxgig_value* result = api_key->vt->load(api_key, cmap(2, "id", v_str("api_key_i
 Remove the entity matching the given criteria. Sets `*err` on failure.
 
 ```c
-Entity* api_key = bluefin_payconex_api_key(client, NULL);
+Entity* api_key = bluefinpayconex_api_key(client, NULL);
 voxgig_value* result = api_key->vt->remove(api_key, cmap(2, "id", v_str("api_key_id"), "account_id", v_str("account_id")), NULL, &err);
 ```
 
@@ -552,7 +552,7 @@ voxgig_value* result = api_key->vt->remove(api_key, cmap(2, "id", v_str("api_key
 Update an existing entity. The data must include the entity id. Returns the updated entity data.
 
 ```c
-Entity* api_key = bluefin_payconex_api_key(client, NULL);
+Entity* api_key = bluefinpayconex_api_key(client, NULL);
 voxgig_value* result = api_key->vt->update(api_key, cmap(2, "id", v_str("api_key_id"), "account_id", v_str("account_id")), NULL, &err);
 ```
 
@@ -580,7 +580,7 @@ Return the entity name.
 ## ApplePayMerchantDetail
 
 ```c
-Entity* apple_pay_merchant_detail = bluefin_payconex_apple_pay_merchant_detail(client, NULL);
+Entity* apple_pay_merchant_detail = bluefinpayconex_apple_pay_merchant_detail(client, NULL);
 ```
 
 ### Fields
@@ -608,7 +608,7 @@ Entity* apple_pay_merchant_detail = bluefin_payconex_apple_pay_merchant_detail(c
 Create a new entity with the given data. Returns the created entity data and sets `*err` on failure.
 
 ```c
-Entity* apple_pay_merchant_detail = bluefin_payconex_apple_pay_merchant_detail(client, NULL);
+Entity* apple_pay_merchant_detail = bluefinpayconex_apple_pay_merchant_detail(client, NULL);
 voxgig_value* result = apple_pay_merchant_detail->vt->create(apple_pay_merchant_detail, cmap(1,
     "account_id", v_num(1))  // int64_t
 , NULL, &err);
@@ -619,7 +619,7 @@ voxgig_value* result = apple_pay_merchant_detail->vt->create(apple_pay_merchant_
 List entities matching the given criteria. The match is optional — pass `NULL` to list all records. Returns a List.
 
 ```c
-Entity* apple_pay_merchant_detail = bluefin_payconex_apple_pay_merchant_detail(client, NULL);
+Entity* apple_pay_merchant_detail = bluefinpayconex_apple_pay_merchant_detail(client, NULL);
 voxgig_value* results = apple_pay_merchant_detail->vt->list(apple_pay_merchant_detail, NULL, NULL, &err);
 for (size_t i = 0; i < (size_t)voxgig_size(results); i++) {
     printf("%s\n", voxgig_to_json(voxgig_getelem(results, v_int(i), NULL)));
@@ -650,7 +650,7 @@ Return the entity name.
 ## ApplePaySession
 
 ```c
-Entity* apple_pay_session = bluefin_payconex_apple_pay_session(client, NULL);
+Entity* apple_pay_session = bluefinpayconex_apple_pay_session(client, NULL);
 ```
 
 ### Fields
@@ -676,7 +676,7 @@ Entity* apple_pay_session = bluefin_payconex_apple_pay_session(client, NULL);
 Create a new entity with the given data. Returns the created entity data and sets `*err` on failure.
 
 ```c
-Entity* apple_pay_session = bluefin_payconex_apple_pay_session(client, NULL);
+Entity* apple_pay_session = bluefinpayconex_apple_pay_session(client, NULL);
 voxgig_value* result = apple_pay_session->vt->create(apple_pay_session, cmap(1,
     "account_id", v_num(1))  // int64_t
 , NULL, &err);
@@ -706,7 +706,7 @@ Return the entity name.
 ## DynamicDescriptor
 
 ```c
-Entity* dynamic_descriptor = bluefin_payconex_dynamic_descriptor(client, NULL);
+Entity* dynamic_descriptor = bluefinpayconex_dynamic_descriptor(client, NULL);
 ```
 
 ### Fields
@@ -726,7 +726,7 @@ Entity* dynamic_descriptor = bluefin_payconex_dynamic_descriptor(client, NULL);
 Create a new entity with the given data. Returns the created entity data and sets `*err` on failure.
 
 ```c
-Entity* dynamic_descriptor = bluefin_payconex_dynamic_descriptor(client, NULL);
+Entity* dynamic_descriptor = bluefinpayconex_dynamic_descriptor(client, NULL);
 voxgig_value* result = dynamic_descriptor->vt->create(dynamic_descriptor, cmap(1,
     "account_id", v_str("example_account_id"))  // char*
 , NULL, &err);
@@ -737,7 +737,7 @@ voxgig_value* result = dynamic_descriptor->vt->create(dynamic_descriptor, cmap(1
 List entities matching the given criteria. The match is optional — pass `NULL` to list all records. Returns a List.
 
 ```c
-Entity* dynamic_descriptor = bluefin_payconex_dynamic_descriptor(client, NULL);
+Entity* dynamic_descriptor = bluefinpayconex_dynamic_descriptor(client, NULL);
 voxgig_value* results = dynamic_descriptor->vt->list(dynamic_descriptor, NULL, NULL, &err);
 for (size_t i = 0; i < (size_t)voxgig_size(results); i++) {
     printf("%s\n", voxgig_to_json(voxgig_getelem(results, v_int(i), NULL)));
@@ -749,7 +749,7 @@ for (size_t i = 0; i < (size_t)voxgig_size(results); i++) {
 Load a single entity matching the given criteria. Returns the entity data and sets `*err` on failure.
 
 ```c
-Entity* dynamic_descriptor = bluefin_payconex_dynamic_descriptor(client, NULL);
+Entity* dynamic_descriptor = bluefinpayconex_dynamic_descriptor(client, NULL);
 voxgig_value* result = dynamic_descriptor->vt->load(dynamic_descriptor, cmap(2, "id", v_str("dynamic_descriptor_id"), "account_id", v_str("account_id")), NULL, &err);
 ```
 
@@ -758,7 +758,7 @@ voxgig_value* result = dynamic_descriptor->vt->load(dynamic_descriptor, cmap(2, 
 Remove the entity matching the given criteria. Sets `*err` on failure.
 
 ```c
-Entity* dynamic_descriptor = bluefin_payconex_dynamic_descriptor(client, NULL);
+Entity* dynamic_descriptor = bluefinpayconex_dynamic_descriptor(client, NULL);
 voxgig_value* result = dynamic_descriptor->vt->remove(dynamic_descriptor, cmap(2, "id", v_str("dynamic_descriptor_id"), "account_id", v_str("account_id")), NULL, &err);
 ```
 
@@ -767,7 +767,7 @@ voxgig_value* result = dynamic_descriptor->vt->remove(dynamic_descriptor, cmap(2
 Update an existing entity. The data must include the entity id. Returns the updated entity data.
 
 ```c
-Entity* dynamic_descriptor = bluefin_payconex_dynamic_descriptor(client, NULL);
+Entity* dynamic_descriptor = bluefinpayconex_dynamic_descriptor(client, NULL);
 voxgig_value* result = dynamic_descriptor->vt->update(dynamic_descriptor, cmap(2, "id", v_str("dynamic_descriptor_id"), "account_id", v_str("account_id")), NULL, &err);
 ```
 
@@ -795,7 +795,7 @@ Return the entity name.
 ## IFrameCreateInstance
 
 ```c
-Entity* i_frame_create_instance = bluefin_payconex_i_frame_create_instance(client, NULL);
+Entity* i_frame_create_instance = bluefinpayconex_i_frame_create_instance(client, NULL);
 ```
 
 ### Fields
@@ -819,7 +819,7 @@ Entity* i_frame_create_instance = bluefin_payconex_i_frame_create_instance(clien
 Create a new entity with the given data. Returns the created entity data and sets `*err` on failure.
 
 ```c
-Entity* i_frame_create_instance = bluefin_payconex_i_frame_create_instance(client, NULL);
+Entity* i_frame_create_instance = bluefinpayconex_i_frame_create_instance(client, NULL);
 voxgig_value* result = i_frame_create_instance->vt->create(i_frame_create_instance, cmap(2,
     "account_id", v_str("example_account_id"),  // char*
     "payment_iframe_id", v_str("example_payment_iframe_id"))  // char*
@@ -850,7 +850,7 @@ Return the entity name.
 ## IFrameInstance
 
 ```c
-Entity* i_frame_instance = bluefin_payconex_i_frame_instance(client, NULL);
+Entity* i_frame_instance = bluefinpayconex_i_frame_instance(client, NULL);
 ```
 
 ### Operations
@@ -860,7 +860,7 @@ Entity* i_frame_instance = bluefin_payconex_i_frame_instance(client, NULL);
 Load a single entity matching the given criteria. Returns the entity data and sets `*err` on failure.
 
 ```c
-Entity* i_frame_instance = bluefin_payconex_i_frame_instance(client, NULL);
+Entity* i_frame_instance = bluefinpayconex_i_frame_instance(client, NULL);
 voxgig_value* result = i_frame_instance->vt->load(i_frame_instance, cmap(3, "id", v_str("i_frame_instance_id"), "account_id", v_str("account_id"), "payment_iframe_id", v_str("payment_iframe_id")), NULL, &err);
 ```
 
@@ -888,7 +888,7 @@ Return the entity name.
 ## Iframe
 
 ```c
-Entity* iframe = bluefin_payconex_iframe(client, NULL);
+Entity* iframe = bluefinpayconex_iframe(client, NULL);
 ```
 
 ### Fields
@@ -928,7 +928,7 @@ Entity* iframe = bluefin_payconex_iframe(client, NULL);
 Create a new entity with the given data. Returns the created entity data and sets `*err` on failure.
 
 ```c
-Entity* iframe = bluefin_payconex_iframe(client, NULL);
+Entity* iframe = bluefinpayconex_iframe(client, NULL);
 voxgig_value* result = iframe->vt->create(iframe, cmap(1,
     "account_id", v_str("example_account_id"))  // char*
 , NULL, &err);
@@ -939,7 +939,7 @@ voxgig_value* result = iframe->vt->create(iframe, cmap(1,
 List entities matching the given criteria. The match is optional — pass `NULL` to list all records. Returns a List.
 
 ```c
-Entity* iframe = bluefin_payconex_iframe(client, NULL);
+Entity* iframe = bluefinpayconex_iframe(client, NULL);
 voxgig_value* results = iframe->vt->list(iframe, NULL, NULL, &err);
 for (size_t i = 0; i < (size_t)voxgig_size(results); i++) {
     printf("%s\n", voxgig_to_json(voxgig_getelem(results, v_int(i), NULL)));
@@ -951,7 +951,7 @@ for (size_t i = 0; i < (size_t)voxgig_size(results); i++) {
 Load a single entity matching the given criteria. Returns the entity data and sets `*err` on failure.
 
 ```c
-Entity* iframe = bluefin_payconex_iframe(client, NULL);
+Entity* iframe = bluefinpayconex_iframe(client, NULL);
 voxgig_value* result = iframe->vt->load(iframe, cmap(2, "account_id", v_str("account_id"), "iframe_id", v_str("iframe_id")), NULL, &err);
 ```
 
@@ -960,7 +960,7 @@ voxgig_value* result = iframe->vt->load(iframe, cmap(2, "account_id", v_str("acc
 Update an existing entity. The data must include the entity id. Returns the updated entity data.
 
 ```c
-Entity* iframe = bluefin_payconex_iframe(client, NULL);
+Entity* iframe = bluefinpayconex_iframe(client, NULL);
 voxgig_value* result = iframe->vt->update(iframe, cmap(2, "account_id", v_str("account_id"), "iframe_id", v_str("iframe_id")), NULL, &err);
 ```
 
@@ -988,7 +988,7 @@ Return the entity name.
 ## Init
 
 ```c
-Entity* init = bluefin_payconex_init(client, NULL);
+Entity* init = bluefinpayconex_init(client, NULL);
 ```
 
 ### Fields
@@ -1010,7 +1010,7 @@ Entity* init = bluefin_payconex_init(client, NULL);
 Create a new entity with the given data. Returns the created entity data and sets `*err` on failure.
 
 ```c
-Entity* init = bluefin_payconex_init(client, NULL);
+Entity* init = bluefinpayconex_init(client, NULL);
 voxgig_value* result = init->vt->create(init, cmap(1,
     "account_id", v_str("example_account_id"))  // char*
 , NULL, &err);
@@ -1040,7 +1040,7 @@ Return the entity name.
 ## ListApiKeyScopesEntry
 
 ```c
-Entity* list_api_key_scopes_entry = bluefin_payconex_list_api_key_scopes_entry(client, NULL);
+Entity* list_api_key_scopes_entry = bluefinpayconex_list_api_key_scopes_entry(client, NULL);
 ```
 
 ### Fields
@@ -1060,7 +1060,7 @@ Entity* list_api_key_scopes_entry = bluefin_payconex_list_api_key_scopes_entry(c
 List entities matching the given criteria. The match is optional — pass `NULL` to list all records. Returns a List.
 
 ```c
-Entity* list_api_key_scopes_entry = bluefin_payconex_list_api_key_scopes_entry(client, NULL);
+Entity* list_api_key_scopes_entry = bluefinpayconex_list_api_key_scopes_entry(client, NULL);
 voxgig_value* results = list_api_key_scopes_entry->vt->list(list_api_key_scopes_entry, NULL, NULL, &err);
 for (size_t i = 0; i < (size_t)voxgig_size(results); i++) {
     printf("%s\n", voxgig_to_json(voxgig_getelem(results, v_int(i), NULL)));
@@ -1091,7 +1091,7 @@ Return the entity name.
 ## PaymentIframe
 
 ```c
-Entity* payment_iframe = bluefin_payconex_payment_iframe(client, NULL);
+Entity* payment_iframe = bluefinpayconex_payment_iframe(client, NULL);
 ```
 
 ### Operations
@@ -1101,7 +1101,7 @@ Entity* payment_iframe = bluefin_payconex_payment_iframe(client, NULL);
 Remove the entity matching the given criteria. Sets `*err` on failure.
 
 ```c
-Entity* payment_iframe = bluefin_payconex_payment_iframe(client, NULL);
+Entity* payment_iframe = bluefinpayconex_payment_iframe(client, NULL);
 voxgig_value* result = payment_iframe->vt->remove(payment_iframe, cmap(2, "account_id", v_str("account_id"), "id", v_str("id")), NULL, &err);
 ```
 
@@ -1129,7 +1129,7 @@ Return the entity name.
 ## ThreeDSecureAuth
 
 ```c
-Entity* three_d_secure_auth = bluefin_payconex_three_d_secure_auth(client, NULL);
+Entity* three_d_secure_auth = bluefinpayconex_three_d_secure_auth(client, NULL);
 ```
 
 ### Fields
@@ -1155,7 +1155,7 @@ Entity* three_d_secure_auth = bluefin_payconex_three_d_secure_auth(client, NULL)
 Create a new entity with the given data. Returns the created entity data and sets `*err` on failure.
 
 ```c
-Entity* three_d_secure_auth = bluefin_payconex_three_d_secure_auth(client, NULL);
+Entity* three_d_secure_auth = bluefinpayconex_three_d_secure_auth(client, NULL);
 voxgig_value* result = three_d_secure_auth->vt->create(three_d_secure_auth, cmap(2,
     "3_d_id", v_str("example_3_d_id"),  // char*
     "account_id", v_str("example_account_id"))  // char*
@@ -1186,7 +1186,7 @@ Return the entity name.
 ## ThreeDSecureBrowserInit
 
 ```c
-Entity* three_d_secure_browser_init = bluefin_payconex_three_d_secure_browser_init(client, NULL);
+Entity* three_d_secure_browser_init = bluefinpayconex_three_d_secure_browser_init(client, NULL);
 ```
 
 ### Fields
@@ -1211,7 +1211,7 @@ Entity* three_d_secure_browser_init = bluefin_payconex_three_d_secure_browser_in
 Create a new entity with the given data. Returns the created entity data and sets `*err` on failure.
 
 ```c
-Entity* three_d_secure_browser_init = bluefin_payconex_three_d_secure_browser_init(client, NULL);
+Entity* three_d_secure_browser_init = bluefinpayconex_three_d_secure_browser_init(client, NULL);
 voxgig_value* result = three_d_secure_browser_init->vt->create(three_d_secure_browser_init, cmap(1,
     "account_id", v_str("example_account_id"))  // char*
 , NULL, &err);
@@ -1241,7 +1241,7 @@ Return the entity name.
 ## ThreeDSecureStatus
 
 ```c
-Entity* three_d_secure_status = bluefin_payconex_three_d_secure_status(client, NULL);
+Entity* three_d_secure_status = bluefinpayconex_three_d_secure_status(client, NULL);
 ```
 
 ### Fields
@@ -1262,7 +1262,7 @@ Entity* three_d_secure_status = bluefin_payconex_three_d_secure_status(client, N
 Load a single entity matching the given criteria. Returns the entity data and sets `*err` on failure.
 
 ```c
-Entity* three_d_secure_status = bluefin_payconex_three_d_secure_status(client, NULL);
+Entity* three_d_secure_status = bluefinpayconex_three_d_secure_status(client, NULL);
 voxgig_value* result = three_d_secure_status->vt->load(three_d_secure_status, cmap(2, "3_d_id", v_str("3_d_id"), "account_id", v_str("account_id")), NULL, &err);
 ```
 
@@ -1290,7 +1290,7 @@ Return the entity name.
 ## TransactionDetail
 
 ```c
-Entity* transaction_detail = bluefin_payconex_transaction_detail(client, NULL);
+Entity* transaction_detail = bluefinpayconex_transaction_detail(client, NULL);
 ```
 
 ### Fields
@@ -1338,7 +1338,7 @@ Entity* transaction_detail = bluefin_payconex_transaction_detail(client, NULL);
 Load a single entity matching the given criteria. Returns the entity data and sets `*err` on failure.
 
 ```c
-Entity* transaction_detail = bluefin_payconex_transaction_detail(client, NULL);
+Entity* transaction_detail = bluefinpayconex_transaction_detail(client, NULL);
 voxgig_value* result = transaction_detail->vt->load(transaction_detail, cmap(2, "account_id", v_str("account_id"), "transaction_id", v_str("transaction_id")), NULL, &err);
 ```
 
@@ -1347,7 +1347,7 @@ voxgig_value* result = transaction_detail->vt->load(transaction_detail, cmap(2, 
 Update an existing entity. The data must include the entity id. Returns the updated entity data.
 
 ```c
-Entity* transaction_detail = bluefin_payconex_transaction_detail(client, NULL);
+Entity* transaction_detail = bluefinpayconex_transaction_detail(client, NULL);
 voxgig_value* result = transaction_detail->vt->update(transaction_detail, cmap(2, "account_id", v_str("account_id"), "transaction_id", v_str("transaction_id")), NULL, &err);
 ```
 
@@ -1375,7 +1375,7 @@ Return the entity name.
 ## Webhook
 
 ```c
-Entity* webhook = bluefin_payconex_webhook(client, NULL);
+Entity* webhook = bluefinpayconex_webhook(client, NULL);
 ```
 
 ### Fields
@@ -1393,7 +1393,7 @@ Entity* webhook = bluefin_payconex_webhook(client, NULL);
 Create a new entity with the given data. Returns the created entity data and sets `*err` on failure.
 
 ```c
-Entity* webhook = bluefin_payconex_webhook(client, NULL);
+Entity* webhook = bluefinpayconex_webhook(client, NULL);
 voxgig_value* result = webhook->vt->create(webhook, cmap(1,
     "account_id", v_str("example_account_id"))  // char*
 , NULL, &err);
@@ -1404,7 +1404,7 @@ voxgig_value* result = webhook->vt->create(webhook, cmap(1,
 List entities matching the given criteria. The match is optional — pass `NULL` to list all records. Returns a List.
 
 ```c
-Entity* webhook = bluefin_payconex_webhook(client, NULL);
+Entity* webhook = bluefinpayconex_webhook(client, NULL);
 voxgig_value* results = webhook->vt->list(webhook, NULL, NULL, &err);
 for (size_t i = 0; i < (size_t)voxgig_size(results); i++) {
     printf("%s\n", voxgig_to_json(voxgig_getelem(results, v_int(i), NULL)));
@@ -1416,7 +1416,7 @@ for (size_t i = 0; i < (size_t)voxgig_size(results); i++) {
 Load a single entity matching the given criteria. Returns the entity data and sets `*err` on failure.
 
 ```c
-Entity* webhook = bluefin_payconex_webhook(client, NULL);
+Entity* webhook = bluefinpayconex_webhook(client, NULL);
 voxgig_value* result = webhook->vt->load(webhook, cmap(2, "id", v_str("webhook_id"), "account_id", v_str("account_id")), NULL, &err);
 ```
 
@@ -1425,7 +1425,7 @@ voxgig_value* result = webhook->vt->load(webhook, cmap(2, "id", v_str("webhook_i
 Remove the entity matching the given criteria. Sets `*err` on failure.
 
 ```c
-Entity* webhook = bluefin_payconex_webhook(client, NULL);
+Entity* webhook = bluefinpayconex_webhook(client, NULL);
 voxgig_value* result = webhook->vt->remove(webhook, cmap(2, "id", v_str("webhook_id"), "account_id", v_str("account_id")), NULL, &err);
 ```
 
@@ -1434,7 +1434,7 @@ voxgig_value* result = webhook->vt->remove(webhook, cmap(2, "id", v_str("webhook
 Update an existing entity. The data must include the entity id. Returns the updated entity data.
 
 ```c
-Entity* webhook = bluefin_payconex_webhook(client, NULL);
+Entity* webhook = bluefinpayconex_webhook(client, NULL);
 voxgig_value* result = webhook->vt->update(webhook, cmap(2, "id", v_str("webhook_id"), "account_id", v_str("account_id")), NULL, &err);
 ```
 
@@ -1469,7 +1469,7 @@ Return the entity name.
 Features are activated via the `feature` option:
 
 ```c
-BluefinPayconexSDK* client = bluefin_payconex_sdk_new(cmap(1,
+BluefinPayconexSDK* client = bluefinpayconex_sdk_new(cmap(1,
     "feature", cmap(1,
         "test", cmap(1, "active", v_bool(true)))
 ));

@@ -28,7 +28,7 @@ static BluefinPayconexSDK* apple_pay_merchant_detail_direct_setup(voxgig_value* 
   voxgig_value* opts = cmap(2,
     "base", v_str("http://localhost:8080"),
     "system", cmap(1, "fetch", vfn(apple_pay_merchant_detail_mock, mockres)));
-  return bluefin_payconex_sdk_new(opts);
+  return bluefinpayconex_sdk_new(opts);
 }
 
 int main(void) {
@@ -58,5 +58,5 @@ int main(void) {
     CHECK(strstr(LAST_URL, "direct01") != NULL, "list: url has direct01");
   }
 
-  TEST_SUMMARY("bluefin_payconex_apple_pay_merchant_detail_direct");
+  TEST_SUMMARY("bluefinpayconex_apple_pay_merchant_detail_direct");
 }

@@ -36,6 +36,9 @@ object TransactionDetailEntityTest {
       idmap.put("payment03", "PAYMENT03")
       idmap.put("account_id", "ACCOUNT01")
       val now = System.currentTimeMillis()
+      val transactionDetailRef01DataRaw = Struct.items(Helpers.toMapAny(
+          Struct.getpath(entityData, "existing.transaction_detail")))
+      val transactionDetailRef01Data = Helpers.toMapAny(transactionDetailRef01DataRaw.get(0).get(1))
 
       // UPDATE
       val transactionDetailRef01Ent = client.transactionDetail(null)

@@ -90,7 +90,7 @@ local result, err = client:ThreeDSecureStatus():load({ ["3_d_id"] = "example", a
 
 BluefinPayconexSDK* client = test_sdk(NULL, NULL);
 PNError* err = NULL;
-Entity* three_d_secure_status = bluefin_payconex_three_d_secure_status(client, NULL);
+Entity* three_d_secure_status = bluefinpayconex_three_d_secure_status(client, NULL);
 voxgig_value* three_d_secure_status_rec = three_d_secure_status->vt->load(three_d_secure_status, cmap(2, "3_d_id", v_str("example"), "account_id", v_str("example")), NULL, &err);
 printf("%s\n", voxgig_to_json(three_d_secure_status_rec));
 ```
@@ -432,7 +432,7 @@ local client = sdk.new({
 ```c
 #include "core/api.h"
 
-BluefinPayconexSDK* client = bluefin_payconex_sdk_new(cmap(1,
+BluefinPayconexSDK* client = bluefinpayconex_sdk_new(cmap(1,
     "apikey", v_str(getenv("BLUEFIN_PAYCONEX_APIKEY"))));
 PNError* err = NULL;
 

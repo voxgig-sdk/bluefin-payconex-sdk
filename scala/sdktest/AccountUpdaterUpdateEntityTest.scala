@@ -32,6 +32,9 @@ object AccountUpdaterUpdateEntityTest {
       idmap.put("account02", "ACCOUNT02")
       idmap.put("account03", "ACCOUNT03")
       val now = System.currentTimeMillis()
+      val accountUpdaterUpdateRef01DataRaw = Struct.items(Helpers.toMapAny(
+          Struct.getpath(entityData, "existing.account_updater_update")))
+      val accountUpdaterUpdateRef01Data = Helpers.toMapAny(accountUpdaterUpdateRef01DataRaw.get(0).get(1))
 
       // LOAD
       val accountUpdaterUpdateRef01Ent = client.accountUpdaterUpdate(null)

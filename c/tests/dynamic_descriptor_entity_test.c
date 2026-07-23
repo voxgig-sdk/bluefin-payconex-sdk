@@ -6,7 +6,7 @@ int main(void) {
   BluefinPayconexSDK* sdk = test_sdk(NULL, NULL);
   CHECK(sdk != NULL, "sdk constructed");
 
-  Entity* e = bluefin_payconex_dynamic_descriptor(sdk, NULL);
+  Entity* e = bluefinpayconex_dynamic_descriptor(sdk, NULL);
   CHECK(e != NULL, "entity instance");
   CHECK_STR_EQ(e->vt->get_name(e), "dynamic_descriptor", "entity get_name");
 
@@ -24,7 +24,7 @@ int main(void) {
       cmap(1, "streaming", cmap(1, "active", v_bool(true))));
 
     BluefinPayconexSDK* strsdk = test_sdk(seed, sdkopts);
-    Entity* se = bluefin_payconex_dynamic_descriptor(strsdk, NULL);
+    Entity* se = bluefinpayconex_dynamic_descriptor(strsdk, NULL);
     PNError* serr = NULL;
     voxgig_value* items = dynamic_descriptor_stream(se, "list", NULL, NULL, &serr);
     CHECK(serr == NULL, "stream: no error");
@@ -33,7 +33,7 @@ int main(void) {
 
     // Fallback: streaming inactive still yields both materialised items.
     BluefinPayconexSDK* plainsdk = test_sdk(seed, NULL);
-    Entity* pe = bluefin_payconex_dynamic_descriptor(plainsdk, NULL);
+    Entity* pe = bluefinpayconex_dynamic_descriptor(plainsdk, NULL);
     PNError* perr = NULL;
     voxgig_value* pitems = dynamic_descriptor_stream(pe, "list", NULL, NULL, &perr);
     CHECK(perr == NULL, "stream fallback: no error");

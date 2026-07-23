@@ -6,7 +6,7 @@ int main(void) {
   BluefinPayconexSDK* sdk = test_sdk(NULL, NULL);
   CHECK(sdk != NULL, "sdk constructed");
 
-  Entity* e = bluefin_payconex_webhook(sdk, NULL);
+  Entity* e = bluefinpayconex_webhook(sdk, NULL);
   CHECK(e != NULL, "entity instance");
   CHECK_STR_EQ(e->vt->get_name(e), "webhook", "entity get_name");
 
@@ -24,7 +24,7 @@ int main(void) {
       cmap(1, "streaming", cmap(1, "active", v_bool(true))));
 
     BluefinPayconexSDK* strsdk = test_sdk(seed, sdkopts);
-    Entity* se = bluefin_payconex_webhook(strsdk, NULL);
+    Entity* se = bluefinpayconex_webhook(strsdk, NULL);
     PNError* serr = NULL;
     voxgig_value* items = webhook_stream(se, "list", NULL, NULL, &serr);
     CHECK(serr == NULL, "stream: no error");
@@ -33,7 +33,7 @@ int main(void) {
 
     // Fallback: streaming inactive still yields both materialised items.
     BluefinPayconexSDK* plainsdk = test_sdk(seed, NULL);
-    Entity* pe = bluefin_payconex_webhook(plainsdk, NULL);
+    Entity* pe = bluefinpayconex_webhook(plainsdk, NULL);
     PNError* perr = NULL;
     voxgig_value* pitems = webhook_stream(pe, "list", NULL, NULL, &perr);
     CHECK(perr == NULL, "stream fallback: no error");
